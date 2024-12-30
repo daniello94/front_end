@@ -1,0 +1,59 @@
+@use "../utilities/variables" as *;
+@use "../utilities/mixins" as *;
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: $font-family;
+  color: $text-color;
+  line-height: 1.6;
+  font-size: clamp(14px, 1.5vw, 18px);
+  background-color: $background-color;
+
+  @include responsive($breakpoint-tv) {
+    font-size: 18px;
+  }
+
+  @include responsive($breakpoint-desktop) {
+    font-size: 16px;
+  }
+
+  @include responsive($breakpoint-tablet) {
+    font-size: 14px;
+  }
+
+  @include responsive($breakpoint-mobile) {
+    font-size: 12px;
+  }
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+  line-height: 1.2;
+  font-family:$font-family_text;
+}
+
+p {
+  font-family: "PT Sans", serif; 
+}
+
+.container {
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+    @include responsive($breakpoint-desktop) {
+      max-width: 1200px;
+    }
+  
+    @include responsive($breakpoint-tablet) {
+      max-width: 768px;
+    }
+  
+    @include responsive($breakpoint-mobile) {
+      max-width: 480px;
+    }
+    @include responsive($breakpoint-small-mobile) {
+        max-width: 320px;
+      }
+  }
+  

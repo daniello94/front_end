@@ -1,0 +1,45 @@
+@use "./variables" as *;
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin responsive($breakpoint) {
+  @media (max-width: $breakpoint) {
+    @content;
+  }
+}
+
+@mixin respond($breakpoint) {
+  @if $breakpoint == small {
+    @media (max-width: $breakpoint-small-mobile) {
+      @content;
+    }
+  }
+  @if $breakpoint == phone {
+    @media (min-width: $breakpoint-small-mobile){
+      @content;
+    }
+  }
+  @if $breakpoint == phoneHorizontal {
+    @media (min-width: $breakpoint-mobile) {
+      @content;
+    }
+  }
+  @if $breakpoint == tablet {
+    @media (min-width: $breakpoint-tablet) {
+      @content;
+    }
+  }
+  @if $breakpoint == laptop {
+    @media (min-width: $breakpoint-desktop) {
+      @content;
+    }
+  }
+  @if $breakpoint == tv {
+    @media (min-width: $breakpoint-tv) {
+      @content;
+    }
+  }
+}

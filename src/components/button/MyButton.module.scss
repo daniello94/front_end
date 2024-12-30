@@ -1,0 +1,25 @@
+@use "../../styles/utilities/variables" as *;
+.button {
+    border: none;
+    color: $text-color;
+    font-size: 18px;
+    background-color: transparent;
+    cursor: pointer;
+    &:hover {
+        color: $primary-color_silver;
+    }
+}
+.submit {
+    border: 2px solid $text-color;
+    background-color: $text-color;
+    color: $text-color_white;
+    font-weight: bold;
+    padding: 10px;
+    transition: 1s;
+    border-radius: 2px;
+    &:hover {
+        background-color:$primary-color_orange;
+        color: $text-color_white;
+        box-shadow: 2px 3px 2px 3px $primary-color_silver;
+    }
+}

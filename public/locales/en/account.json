@@ -1,0 +1,29 @@
+{
+    "h1": "Registration",
+    "form": {
+        "name": "Enter your first name",
+        "lastName": "Enter your last name",
+        "email": "Enter your email",
+        "phoneNumber": "Provide a contact number",
+        "country": "Choose a country code",
+        "password": "Enter your password",
+        "reqPassword": "Repeat the password"
+    },
+    "error": {
+        "data": "Fields containing errors:",
+        "name": "first name",
+        "lastName": "last name",
+        "phoneNumber": "Phone number",
+        "country": "Country code",
+        "password": "password",
+        "passwordLength": "Must contain at least 6 characters",
+        "passwordDigit": "At least one digit (1,2,3 etc.)",
+        "passwordCapitalLetter": "An uppercase letter (A,B,C etc.)",
+        "passwordCapitalLetterSpecial": "A special character (!,@#$ etc.)",
+        "reqPassword": "Passwords do not match",
+        "email": "Email",
+        "emailStatus": "is taken",
+        "success": "Account has been created"
+    },
+    "btn": "Register"
+}

@@ -1,0 +1,29 @@
+{
+    "h1": "Inscription",
+    "form": {
+        "name": "Entrez votre prénom",
+        "lastName": "Entrez votre nom de famille",
+        "email": "Entrez votre email",
+        "phoneNumber": "Fournissez un numéro de contact",
+        "country": "Choisissez un indicatif téléphonique",
+        "password": "Entrez votre mot de passe",
+        "reqPassword": "Répétez le mot de passe"
+    },
+    "error": {
+        "data": "Champs contenant des erreurs :",
+        "name": "prénom",
+        "lastName": "nom de famille",
+        "phoneNumber": "Numéro de téléphone",
+        "country": "Indicatif téléphonique",
+        "password": "mot de passe",
+        "passwordLength": "Doit contenir au moins 6 caractères",
+        "passwordDigit": "Au moins un chiffre (1,2,3 etc.)",
+        "passwordCapitalLetter": "Une majuscule (A,B,C etc.)",
+        "passwordCapitalLetterSpecial": "Un caractère spécial (!,@#$ etc.)",
+        "reqPassword": "Les mots de passe ne correspondent pas",
+        "email": "Email",
+        "emailStatus": "est pris",
+        "success": "Compte a été créé"
+    },
+    "btn": "S'inscrire"
+}

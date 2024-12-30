@@ -1,0 +1,29 @@
+{
+    "h1": "Înregistrare",
+    "form": {
+        "name": "Introduceți prenumele",
+        "lastName": "Introduceți numele de familie",
+        "email": "Introduceți emailul",
+        "phoneNumber": "Furnizați un număr de contact",
+        "country": "Alegeți un cod de țară",
+        "password": "Introduceți parola",
+        "reqPassword": "Repetă parola"
+    },
+    "error": {
+        "data": "Câmpuri care conțin erori:",
+        "name": "prenume",
+        "lastName": "nume de familie",
+        "phoneNumber": "număr de telefon",
+        "country": "cod de țară",
+        "password": "parola",
+        "passwordLength": "Trebuie să conțină cel puțin 6 caractere",
+        "passwordDigit": "Cel puțin un număr (1,2,3 etc.)",
+        "passwordCapitalLetter": "O literă mare (A,B,C etc.)",
+        "passwordCapitalLetterSpecial": "Un caracter special (!,@#$ etc.)",
+        "reqPassword": "Parolele nu corespund",
+        "email": "Email",
+        "emailStatus": "este ocupat",
+        "success": "Contul a fost creat"
+    },
+    "btn": "Înregistrează-te"
+}

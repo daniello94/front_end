@@ -1,0 +1,39 @@
+@use "../../styles/utilities/mixins" as *;
+@use "../../styles/utilities/variables" as *;
+.selectFormation {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: center;
+    .imgStylesCountrySelect {
+        width: 15px;
+        margin-right: 5px;
+    }
+    .spamStyle {
+        margin-right: 5px;
+        font-size: 15px;
+    }
+}
+.selectStyle {
+    font-size: 15px;
+    margin-bottom: 10px;
+    width: 94%;
+    margin-right: 5px;
+    z-index: 1;
+}
+@include responsive($breakpoint-tablet) {
+    .selectFormation {
+        margin-bottom: 10px;
+        display: flex;
+        flex-wrap: nowrap;
+        align-items: center;
+        justify-content: center;
+    }
+    .selectStyle {
+        width: 92%;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 10px;
+        text-align: center;
+    }
+}

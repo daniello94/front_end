@@ -1,0 +1,26 @@
+@use "../../styles/utilities/variables" as *;
+.input{
+    font-size: 16px;
+    margin-bottom:10px;
+    padding: 10px;
+    color: $text-color;
+    width: 90%;
+    border: 1px solid $text-color;
+    border-radius: 2px;
+    font-family: $font-family_text;
+    &:focus{
+        border: 1px solid $text-color !important;
+       box-shadow:  2px 2px 2px 1px $primary-color_blue;
+    }
+  
+}
+.errorInput{
+    border-color: red;
+    box-shadow: 2px 2px 2px 1px rgba(219, 28, 21, 0.665);
+    color: red;
+    &:focus{
+        border-color: red;
+        box-shadow: 2px 2px 2px 1px rgba(219, 28, 21, 0.665);
+        color: red;
+    }
+}

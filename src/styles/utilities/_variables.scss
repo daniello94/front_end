@@ -1,0 +1,35 @@
+// Kolory
+$primary-color: #3498db;
+$primary-color_blue: #478ac9;
+$primary-color_orange: #eb6928;
+$primary-color_yellow: #f1c50e;
+$primary-color_green: #2cccc4;
+$primary-color_silver: #b9c1cc;
+$secondary-color_yellow: #d9ca39;
+$secondary-color_yellow_two: #e8db59;
+$secondary-color: #2ecc71;
+$text-color: #111111;
+$text-color_white: #ffffff;
+$background-color: #f9f9f9;
+
+// Czcionki
+$font-family: "Ubuntu", serif;
+$font-family_text:"PT Sans", serif;
+
+// Breakpointy
+$breakpoint-tv: 1920px; // Telewizory
+$breakpoint-desktop: 1200px; // Monitory i laptopy
+$breakpoint-tablet: 768px; // Tablety
+$breakpoint-mobile: 480px; // Telefony
+$breakpoint-small-mobile: 320px;
+
+// Bazowe wartości czcionek
+$font-size-base: 16px; // Bazowy rozmiar czcionki
+$font-size-h1: 2.5rem;
+$font-size-h2: 2rem;
+$font-size-h3: 1.75rem;
+$font-size-h4: 1.5rem;
+$font-size-h5: 1.25rem;
+$font-size-h6: 1rem;
+
+$container-padding: 20px;

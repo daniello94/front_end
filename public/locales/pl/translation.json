@@ -1,0 +1,16 @@
+{
+    "welcome": "Witamy na naszej stronie!",
+    "description": "To jest przykład aplikacji wielojęzycznej.",
+    "home": {
+      "title": "Strona główna",
+      "content": "To jest zawartość strony głównej."
+    },
+    "about": {
+      "title": "O nas",
+      "content": "Dowiedz się więcej o nas na tej stronie."
+    },
+    "contact": {
+      "title": "Kontakt",
+      "content": "Skontaktuj się z nami!"
+    }
+  }

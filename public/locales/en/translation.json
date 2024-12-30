@@ -1,0 +1,16 @@
+{
+    "welcome": "Welcome to our website!",
+    "description": "This is an example of a multilingual application.",
+    "home": {
+      "title": "Home Page",
+      "content": "This is the home page content."
+    },
+    "about": {
+      "title": "About Us",
+      "content": "Learn more about us on this page."
+    },
+    "contact": {
+      "title": "Contact Us",
+      "content": "Feel free to reach out to us!"
+    }
+  }

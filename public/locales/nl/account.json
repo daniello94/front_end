@@ -1,0 +1,27 @@
+{
+    "h1": "Registratie",
+    "form": {
+        "name": "Voer uw voornaam in",
+        "lastName": "Voer uw achternaam in",
+        "email": "Voer uw e-mailadres in",
+        "phoneNumber": "Geef een contactnummer op",
+        "country": "Kies een landcode",
+        "password": "Voer uw wachtwoord in",
+        "reqPassword": "Herhaal het wachtwoord"
+    },
+    "error": {
+        "data": "Velden met fouten:",
+        "name": "voornaam",
+        "lastName": "achternaam",
+        "phoneNumber": "telefoonnummer",
+        "country": "landcode",
+        "password": "wachtwoord",
+        "passwordLength": "Moet minstens 6 tekens bevatten",
+        "passwordDigit": "Minstens één cijfer (1,2,3 enz.)",
+        "passwordCapitalLetter": "Een hoofdletter (A,B,C enz.)",
+        "passwordCapitalLetterSpecial": "Een speciaal teken (!,@#$ enz.)",
+        "email": "E-mail",
+        "emailStatus": "is bezet",
+        "success": "Account is aangemaakt"
+    }
+}

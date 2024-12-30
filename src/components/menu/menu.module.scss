@@ -1,0 +1,119 @@
+@use "../../styles/utilities/variables" as *;
+@use "../../styles/utilities/mixins" as *;
+
+%commonIcon {
+    font-size: 25px;
+    cursor: pointer;
+    transition: 1s;
+    padding: 10px;
+}
+.mainNav {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+  
+    .iconOpenMenu {
+        @extend %commonIcon;
+        :hover {
+            color: $primary-color_orange;
+        }
+    }
+    .iconCloseMenu {
+        @extend %commonIcon;
+        margin-left: 0;
+        :hover {
+            color: red;
+        }
+    }
+    .close {
+        display: none;
+    }
+    .active {
+        z-index: 12;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        justify-content: center;
+        .contentOpenMenu {
+            top: 0;
+            position: absolute;
+            left: 0;
+            width: 75%;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            justify-content: center;
+            background-color: $text-color;
+            opacity: 0.9;
+            color: $text-color_white;
+            .ulList {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: flex-start;
+                width: 100%;
+                li {
+                    margin-left: 10px;
+                    list-style: none;
+                    padding: 5px;
+                    .activeFlag {
+                        width: 45px;
+                        height: 20px;
+                        margin-right: 5px;
+                        cursor: pointer;
+                    }
+                    .myItem {
+                        color: $text-color_white;
+                        text-decoration: none;
+                        &:hover {
+                            color: $primary-color_silver;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+@include respond(tablet) {
+    .mainNav {
+        z-index: 10;
+        .iconCloseMenu,
+        .iconOpenMenu {
+            display: none;
+        }
+        .active,
+        .close {
+            display: flex;
+            width: 100%;
+            .contentOpenMenu {
+                width: 100%;
+                .ulList {
+                    width: 95%;
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+                    justify-content: flex-end;
+                    list-style: none;
+
+                    .activeFlag {
+                        width: 45px;
+                        height: 20px;
+                        margin-right: 5px;
+                        cursor: pointer;
+                    }
+                    .myItem {
+                        text-decoration: none;
+                        padding: 5px;
+                        margin-right: 5px;
+                        color: $text-color;
+                        &:hover {
+                            color: $primary-color;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

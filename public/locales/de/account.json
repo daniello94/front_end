@@ -1,0 +1,29 @@
+{
+    "h1": "Registrierung",
+    "form": {
+        "name": "Geben Sie Ihren Vornamen ein",
+        "lastName": "Geben Sie Ihren Nachnamen ein",
+        "email": "Geben Sie Ihre E-Mail ein",
+        "phoneNumber": "Geben Sie eine Kontaktnummer an",
+        "country": "Wählen Sie eine Ländervorwahl",
+        "password": "Geben Sie Ihr Passwort ein",
+        "reqPassword": "Wiederholen Sie das Passwort"
+    },
+    "error": {
+        "data": "Felder mit Fehlern:",
+        "name": "Vorname",
+        "lastName": "Nachname",
+        "phoneNumber": "Telefonnummer",
+        "country": "Ländervorwahl",
+        "password": "Passwort",
+        "passwordLength": "Muss mindestens 6 Zeichen enthalten",
+        "passwordDigit": "Mindestens eine Zahl (1,2,3 usw.)",
+        "passwordCapitalLetter": "Ein Großbuchstabe (A,B,C usw.)",
+        "passwordCapitalLetterSpecial": "Ein Sonderzeichen (!,@#$ usw.)",
+        "reqPassword": "Die Passwörter stimmen nicht überein",
+        "email": "E-Mail",
+        "emailStatus": "ist besetzt",
+        "success": "Konto wurde erstellt"
+    },
+    "btn": "Registrieren"
+}

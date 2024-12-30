@@ -1,0 +1,29 @@
+{
+    "h1": "Rejestracja",
+    "form": {
+        "name": "Wprowadź swoje imię",
+        "lastName": "Wprowadź swoje nazwisko",
+        "email": "Wprowadź swój email",
+        "phoneNumber": "Podaj numer kontaktowy",
+        "country": "Wybierz numer kierunkowy",
+        "password": "Wpisz swoje hasło",
+        "reqPassword": "Powtórz podane hasło"
+    },
+    "error": {
+        "data": "Pola zawierające błędy to:",
+        "name": "imię",
+        "lastName": "nazwisko",
+        "phoneNumber": "Numer telefonu",
+        "country": "Numer kierunkowy",
+        "password": "hasło ",
+        "passwordLength": "Musi zawierać min. 6 znaków",
+        "passwordDigit": "Min. 1 liczbę (1,2,3 itp.)",
+        "passwordCapitalLetter": "Dużą literę (A,B,C itp.)",
+        "passwordCapitalLetterSpecial": "Znak specjalny (!,@#$ itp.)",
+        "reqPassword":"Hasła się różnią",
+        "email": "Email",
+        "emailStatus": "jest zajęty",
+        "success": "Konto zostało stworzone"
+    },
+    "btn":"Zarejestruj"
+}
