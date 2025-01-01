@@ -1,6 +1,6 @@
 import axios from "axios";
 const API_URL = "http://127.0.0.1:8080/";
-axios.defaults.withCredentials = true;
+// axios.defaults.withCredentials = true;
 
 export const newAccount = (userName, userLastName, country, phoneNumber, password, email) => {
     return axios.post(`${API_URL}newAccounted`, {
@@ -28,13 +28,22 @@ export const loginUser = (email, password) => {
     return axios.post(`${API_URL}login`, {
         email: email,
         password: password
-    })
+    },
+        { withCredentials: true })
 }
 
-export const checkSession = () => {
-    return axios.get(`${API_URL}check-session`);
+export const checkSession = async () => {
+    return axios.get(`${API_URL}check-session`, {
+        withCredentials: true
+    });
 };
 
-export const logOut = () => {
-    return axios.post(`${API_URL}/logout`)
-}
+export const logoutUser = async () => {
+    return axios.post(`${API_URL}logout`, {}, {
+        withCredentials: true
+    });
+};
+
+export const refreshToken = async () => {
+    return axios.get(`${API_URL}refresh-token`, { withCredentials: true });
+};

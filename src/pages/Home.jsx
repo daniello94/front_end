@@ -2,8 +2,7 @@ import React from 'react';
 import { useUser } from '../contexts/UserContext';
 
 const Home = () => {
-    const { user } = useUser(); // Pobierz aktualnego użytkownika z kontekstu
-console.log(user,'home');
+    const { user } = useUser();
 
     return (
         <div className='container'>

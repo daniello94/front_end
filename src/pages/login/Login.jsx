@@ -16,29 +16,18 @@ const Login = (props) => {
 
     const sendLogin = (e) => {
         e.preventDefault();
-        setInfo("Logowanie…"); // Informacja o rozpoczęciu logowania
+        setInfo("Logowanie…");
 
         loginUser(email, password).then(response => {
-            console.log("Data received:", response.data.user);  // Sprawdź, czy dane są poprawne
-            setUser(response.data.user); // Aktualizuje stan kontekstu użytkownika
-            props.setActiveLogin(false); // Zamknij modal logowania
+            console.log("Data received:", response.data.user); 
+            setUser(response.data.user); 
+            props.setActiveLogin(false); 
         }).catch(err => {
             console.error("Błąd logowania:", err);
             setError(true);
             setInfo("Błąd logowania. Sprawdź dane.");
         });
     }
-    // const sendLogin = async (e) => {
-    //     e.preventDefault();
-    //     try {
-    //         const response = await loginUser(email, password);
-    //         setUser(response.data.user); // Aktualizuje stan kontekstu użytkownika
-    //         props.setActiveLogin(false); // Zamknij modal logowania
-    //     } catch (err) {
-    //         console.error("Błąd logowania:", err);
-    //     }
-    // };
-
         return (
             <Container containerLangue={true} login={true}>
                 <Container contentPages={true}>

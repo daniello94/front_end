@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import MyButton from "../button/MyButton";
 import { useUser } from "../../contexts/UserContext";
-import { logOut } from "../../../api";
+import { logoutUser } from "../../../api";
 
 const Menu = (props) => {
     const [isClose, setClose] = useState("active");
@@ -41,15 +41,12 @@ const Menu = (props) => {
 
     const handleLogout = async () => {
         try {
-            await logoutUser();
-            setUser(null); // Czyszczenie stanu użytkownika w kontekście
-            // Możesz także przekierować użytkownika do strony logowania
-            // history.push('/login'); // Jeśli używasz react-router
+            const response = await logoutUser();
+            setUser(null);
         } catch (error) {
-            console.error('Błąd podczas wylogowywania:', error);
+            console.error('Błąd podczas wylogowywania:', error.response?.data?.message || error.message);
         }
     };
-
     return (
         <nav className={styles.mainNav}>
             <div className={styles[isClose]}>
