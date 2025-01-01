@@ -1,0 +1,8 @@
+{
+    "statusCorrect": "E-mail is succesvol geverifieerd! U kunt nu inloggen op uw account.",
+    "statusError": "Verificatie mislukt.",
+    "statusToken": "Geen verificatietoken verstrekt!",
+    "error": "Er is een fout opgetreden tijdens de verificatie.",
+    "h1": "Verificatiestatus: ",
+    "p": "Fout: "
+}

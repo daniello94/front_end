@@ -1,6 +1,7 @@
 @use "../../styles/utilities/variables" as *;
 .input{
-    font-size: 16px;
+   
+    font-size: clamp(14px, 1.5vw, 18px);
     margin-bottom:10px;
     padding: 10px;
     color: $text-color;

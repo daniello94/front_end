@@ -1,12 +1,25 @@
 @use "../../styles/utilities/variables" as *;
+@use "../../styles//utilities/mixins" as *;
 .button {
     border: none;
-    color: $text-color;
-    font-size: 18px;
+    color: $text-color_white;
     background-color: transparent;
-    cursor: pointer;
+    font-family: $font-family_text;
+    padding: 0;
     &:hover {
         color: $primary-color_silver;
+    }
+}
+@include respond(tablet) {
+    .button {
+        color: $text-color;
+        text-decoration: none;
+        padding: 0;
+        margin-right: 10px;
+        font-family: $font-family_text;
+        &:hover {
+            color: $primary-color;
+        }
     }
 }
 .submit {
@@ -17,8 +30,10 @@
     padding: 10px;
     transition: 1s;
     border-radius: 2px;
+   
+    font-size: clamp(14px, 1.5vw, 18px);
     &:hover {
-        background-color:$primary-color_orange;
+        background-color: $primary-color_orange;
         color: $text-color_white;
         box-shadow: 2px 3px 2px 3px $primary-color_silver;
     }

@@ -1,0 +1,8 @@
+{
+    "statusCorrect": "Email has been successfully verified! You can now log in to your account.",
+    "statusError": "Verification failed.",
+    "statusToken": "No verification token provided!",
+    "error": "An error occurred during verification.",
+    "h1": "Verification Status: ",
+    "p": "Error: "
+}

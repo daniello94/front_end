@@ -1,0 +1,8 @@
+{
+    "statusCorrect": "Emailul a fost verificat cu succes! Acum vă puteți conecta la contul dvs.",
+    "statusError": "Verificarea a eșuat.",
+    "statusToken": "Nu a fost furnizat niciun token de verificare!",
+    "error": "A apărut o eroare în timpul verificării.",
+    "h1": "Starea verificării: ",
+    "p": "Eroare: "
+}

@@ -1,0 +1,8 @@
+{
+    "statusCorrect": "E-Mail wurde erfolgreich verifiziert! Sie können sich nun in Ihr Konto einloggen.",
+    "statusError": "Verifizierung fehlgeschlagen.",
+    "statusToken": "Kein Verifizierungstoken angegeben!",
+    "error": "Bei der Verifizierung ist ein Fehler aufgetreten.",
+    "h1": "Verifizierungsstatus: ",
+    "p": "Fehler: "
+}

@@ -72,7 +72,7 @@ const Account = () => {
             userName: !formData.userName.trim(),
             userLastName: !formData.userLastName.trim(),
             email: !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(formData.email),
-            country: !formData.userLastName.trim(),
+            country: !formData.country.trim(),
             phoneNumber: !/^\d+$/.test(formData.phoneNumber),
             password: !/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{6,}$/.test(formData.password),
             reqPassword: formData.password !== formData.reqPassword
@@ -83,6 +83,12 @@ const Account = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+
+        if (!validateAll()) {
+            console.error('Validation failed');
+            return;
+        };
+
         if (!formData.email) {
             setStatusCheckEmail("")
         } else {
@@ -93,12 +99,6 @@ const Account = () => {
                 return;
             }
         }
-
-        if (!validateAll()) {
-            console.error('Validation failed');
-            return;
-        };
-
         try {
             const response = await newAccount(
                 formData.userName,
@@ -155,9 +155,8 @@ const Account = () => {
             <form className={styles.myFormRegister} onSubmit={handleSubmit}>
                 <h1>{t('h1')}</h1>
                 <span className={styles.createdAccount}>{statusRegistration}</span>
-                {(errors.userName || errors.userLastName || errors.email || errors.phoneNumber || errors.password || errors.reqPassword) && (
+                {(errors.userName || errors.userLastName || errors.email || errors.phoneNumber || errors.country || errors.password || errors.reqPassword) && (
                     <span className={styles.infoErrorContent}>
-
                         <p>{t("error.data")}
                             {errors.userName && (
                                 <span>{t("error.name")}</span>
@@ -186,13 +185,12 @@ const Account = () => {
                                 <span> {t('error.reqPassword')}</span>
                             )}
                         </p>
-
                     </span>
                 )}
                 <MyInput name="userName" placeholder={t('form.name')} type="text" value={formData.userName} error={errors.userName} onChange={handleChange} />
                 <MyInput name="userLastName" placeholder={t('form.lastName')} type="text" value={formData.userLastName} error={errors.userLastName} onChange={handleChange} />
                 <MyInput name="email" placeholder={t('form.email')} type="email" value={formData.email} error={errors.email} onChange={handleChange} />
-                <CountrySelect onSelect={handleSelectDialCode} />
+                <CountrySelect hasError={errors.country} onSelect={handleSelectDialCode} />
                 <MyInput name="phoneNumber" placeholder={t('form.phoneNumber')} type="tel" value={formData.phoneNumber} error={errors.phoneNumber} onChange={handleChange} />
                 <MyInput name="password" placeholder={t('form.password')} type="password" value={formData.password} error={errors.password} onChange={handleChange} />
                 <MyInput name="reqPassword" placeholder={t('form.reqPassword')} type="password" value={formData.reqPassword} error={errors.reqPassword} onChange={handleChange} />

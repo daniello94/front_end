@@ -1,0 +1,8 @@
+{
+    "statusCorrect": "Email został pomyślnie zweryfikowany! Możesz sie zalogować do swojego konta.",
+    "statusError": "Weryfikacja nieudana.",
+    "statusToken": "Brak tokenu weryfikacyjnego!",
+    "error": "Wystąpił błąd podczas weryfikacji.",
+    "h1": "Status weryfikacji: ",
+    "p": "Błąd: "
+}

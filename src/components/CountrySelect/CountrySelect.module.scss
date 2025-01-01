@@ -1,5 +1,13 @@
 @use "../../styles/utilities/mixins" as *;
 @use "../../styles/utilities/variables" as *;
+
+%commonError {
+    font-size: clamp(14px, 1.5vw, 18px);
+    margin-bottom: 10px;
+    width: 94%;
+    margin-right: 5px;
+    z-index: 1;
+}
 .selectFormation {
     display: flex;
     flex-wrap: nowrap;
@@ -11,15 +19,16 @@
     }
     .spamStyle {
         margin-right: 5px;
-        font-size: 15px;
+        font-size: clamp(14px, 1.5vw, 18px);
     }
 }
 .selectStyle {
-    font-size: 15px;
-    margin-bottom: 10px;
-    width: 94%;
-    margin-right: 5px;
-    z-index: 1;
+    @extend %commonError;
+}
+.selectErrorStyle {
+    border: 2px solid red;
+    box-shadow: 2px 2px 2px 1px rgba(219, 28, 21, 0.665);
+    @extend %commonError;
 }
 @include responsive($breakpoint-tablet) {
     .selectFormation {

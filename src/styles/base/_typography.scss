@@ -31,10 +31,15 @@ h1, h2, h3, h4, h5, h6 {
   margin: 0;
   line-height: 1.2;
   font-family:$font-family_text;
+  font-size: clamp(30px, 3.5vw, 34px) !important;
 }
 
 p {
   font-family: "PT Sans", serif; 
+}
+button{
+  font-size: clamp(14px, 1.5vw, 18px);
+  font-family: $font-family;
 }
 
 .container {

@@ -1,12 +1,14 @@
 import React from 'react';
-import { useTranslation } from 'react-i18next';
+import { useUser } from '../contexts/UserContext';
+
 const Home = () => {
-    const {t}=useTranslation("menu")
+    const { user } = useUser(); // Pobierz aktualnego użytkownika z kontekstu
+console.log(user,'home');
+
     return (
         <div className='container'>
-            <h1>{t('item')}</h1>
-            <p>{t('home.content')}</p>
-            <p>test</p>
+            <h1>{user ? `Witaj, ${user.role}!` : 'Nie jesteś zalogowany'}</h1>
+            <p>...inne treści...</p>
         </div>
     );
 };

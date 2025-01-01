@@ -1,0 +1,33 @@
+@use "../../styles/utilities/variables" as *;
+@use "../../styles/utilities/mixins" as *;
+h1 {
+    color:$primary-color_orange;
+    margin-top: 5vh !important;
+}
+.formLogin {
+    margin-top: 6vh !important;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+    width: 75%;
+}
+
+.offLoginViews {
+    color: $text-color;
+    position: absolute;
+    font-size: 20px;
+    right: 30px;
+    top: 30px;
+    color: $primary-color_silver;
+    &:hover{
+        color: $primary-color_orange;
+    }
+}
+.infoTextContent{
+    margin-top: 3vh !important;
+    margin-bottom: 1vh !important;
+}
