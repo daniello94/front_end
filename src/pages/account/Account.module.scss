@@ -25,11 +25,16 @@
         align-items: center;
         margin-bottom: 10px;
     }
-}
-.infoErrorContent {
-    color: red;
-    span {
-        margin-right: 1px;
+    .labelForm{
+        margin-left: 2.68%;
+        margin-right: auto;
+    }
+    .spanContentForm{
+        color: red;
+        margin-left: 2.68%;
+        margin-top: -16px;
+        margin-right: auto;
+        font-size: clamp(12px, 1.5vw, 14px);
     }
 }
 .createdAccount {

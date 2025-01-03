@@ -13,63 +13,65 @@ import "./styles/main.scss";
 import './i18n';
 import { useUser } from "../src/contexts/UserContext";
 import { checkSession } from '../api';
+import FirstLogin from './components/firstLogin/FirstLogin';
 
 const App = () => {
-  const { setUser } = useUser();
+  const { setUser, user } = useUser();
   const [isActiveSwitch, setActiveSwitch] = useState(false);
   const [activeLogin, setActiveLogin] = useState(false)
+console.log(user);
 
   useEffect(() => {
     const initializeSession = async () => {
-        try {
-            console.log('Wysyłam żądanie z opcjami:');
-            const response = await checkSession();
-            setUser(response.data.user);
-            console.log('Sesja aktywna:', response.data.user);
-        } catch (error) {
-            console.error('Błąd sesji:', error.response?.data?.message || error.message);
-            setUser(null);
-        }
+      try {
+        const response = await checkSession();
+        setUser(response.data.user);
+      } catch (error) {
+        console.error('Błąd sesji:', error.response?.data?.message || error.message);
+        setUser(null);
+      }
     };
 
     initializeSession();
-}, [setUser]);
+  }, [setUser]);
 
   useEffect(() => {
     const refreshSession = async () => {
-        try {
-            const response = await refreshToken();
-            if (response.status === 200) {
-                console.log('Sesja została odświeżona.');
-            }
-        } catch (error) {
-            console.error('Błąd podczas odświeżania sesji:', error.response?.data?.message || error.message);
+      try {
+        const response = await refreshToken();
+        if (response.status === 200) {
+          console.log('Sesja została odświeżona.');
         }
+      } catch (error) {
+        console.error('Błąd podczas odświeżania sesji:', error.response?.data?.message || error.message);
+      }
     };
 
-    const interval = setInterval(refreshSession, 15 * 60 * 1000); 
+    const interval = setInterval(refreshSession, 15 * 60 * 1000);
     return () => clearInterval(interval);
-}, []);
+  }, []);
 
   return (
     <Router>
       <LanguageProvider>
-        <div>
-          <Menu active={setActiveSwitch} setActiveLogin={setActiveLogin} />
-          {isActiveSwitch && (
-            <LanguageSwitcher active={setActiveSwitch} />
-          )}
-          {activeLogin && (
-            <Login setActiveLogin={setActiveLogin} />
-          )}
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/contact" element={<Contact />} />
-            <Route path="/newAccount" element={<Account />} />
-            <Route path="/verify" element={<EmailVerification />} />
-          </Routes>
-        </div>
+        <Menu active={setActiveSwitch} setActiveLogin={setActiveLogin} />
+        {isActiveSwitch && (
+          <LanguageSwitcher active={setActiveSwitch} />
+        )}
+        {activeLogin && (
+          <Login setActiveLogin={setActiveLogin} />
+        )}
+        {user && user?.firstLogin === true && (
+          <FirstLogin />
+        )}
+
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/newAccount" element={<Account />} />
+          <Route path="/verify" element={<EmailVerification />} />
+        </Routes>
       </LanguageProvider>
     </Router>
   );

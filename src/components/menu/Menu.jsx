@@ -14,7 +14,7 @@ const Menu = (props) => {
     const [isActive, setActive] = useState("close");
     const { language } = useLanguage();
     const { t } = useTranslation("menu");
-    const { setUser } = useUser()
+    const { setUser, user } = useUser()
 
     const flags = {
         'pl': '/media/img/menu/Poland.jpg',
@@ -59,16 +59,21 @@ const Menu = (props) => {
                         <li><Link className={styles.myItem} to="/" onClick={() => updateMenuState()}>{t('home')} </Link></li>
                         <li><Link className={styles.myItem} to="/about" onClick={() => updateMenuState()}>{t('about')}</Link></li>
                         <li><Link className={styles.myItem} to="/offer" onClick={() => updateMenuState()}>{t('offer')}</Link></li>
-                        <li><Link className={styles.myItem} to="/newAccount" onClick={() => updateMenuState()}>{t('account')}</Link></li>
-                        <li><MyButton className={styles.myItem} onClick={() => {
-                            updateMenuState();
-                            props.setActiveLogin(true);
-                        }}>{t('login')}</MyButton></li>
-
-                        <li><MyButton className={styles.myItem} onClick={() => {
-                            updateMenuState();
-                            handleLogout()
-                        }}>Wyloguj</MyButton></li>
+                        {user === null && (
+                            <li><Link className={styles.myItem} to="/newAccount" onClick={() => updateMenuState()}>{t('account')}</Link></li>
+                        )}
+                        {user === null && (
+                            <li><MyButton className={styles.myItem} onClick={() => {
+                                updateMenuState();
+                                props.setActiveLogin(true);
+                            }}>{t('login')}</MyButton></li>
+                        )}
+                        {user !== null && (
+                            <li><MyButton className={styles.myItem} onClick={() => {
+                                updateMenuState();
+                                handleLogout()
+                            }}>Wyloguj</MyButton></li>
+                        )}
                         <li><img className={styles.activeFlag} src={activeLangue} alt="Current Language Flag" onClick={() => {
                             props.active(true)
                             updateMenuState()

@@ -24,17 +24,18 @@ const formatOptionLabel = ({ label, icon, dialCode }) => (
     </div>
 );
 
-const CountrySelect = ({ onSelect, hasError }) => {
+const CountrySelect = ({ onSelect, hasError, value }) => {
     const { t } = useTranslation("account");
     return (
         <Select
             className={hasError ? styles.selectErrorStyle : styles.selectStyle}
             components={animatedComponents}
             options={countryOptions}
-            onChange={(option) => onSelect(option.value)}
+            onChange={(option) => onSelect(option ? option.value : "")}
             formatOptionLabel={formatOptionLabel}
             placeholder={t('form.country')}
             isClearable
+            value={countryOptions.find(option => option.value === value) || null}
         />
     );
 };

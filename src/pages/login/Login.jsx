@@ -9,8 +9,8 @@ import { useUser } from "../../contexts/UserContext";
 
 const Login = (props) => {
     const [info, setInfo] = useState("");
-    const [email, setEmail] = useState("faktury12d@gmail.com");
-    const [password, setPassword] = useState("123Kolo456!");
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
     const [error, setError] = useState(false)
     const { setUser } = useUser();
 
