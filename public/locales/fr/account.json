@@ -3,27 +3,39 @@
     "form": {
         "name": "Entrez votre prénom",
         "lastName": "Entrez votre nom de famille",
-        "email": "Entrez votre email",
+        "email": "Entrez votre adresse email",
         "phoneNumber": "Fournissez un numéro de contact",
         "country": "Choisissez un indicatif téléphonique",
         "password": "Entrez votre mot de passe",
-        "reqPassword": "Répétez le mot de passe"
+        "reqPassword": "Répétez le mot de passe",
+        "accept": "* J'accepte",
+        "rules": "les conditions d'utilisation",
+        "privateRules": "et la politique de confidentialité",
+        "label": {
+            "name": "Prénom *",
+            "lastName": "Nom de famille *",
+            "email": "Email *",
+            "phoneNumber": "Numéro de contact *",
+            "country": "Indicatif téléphonique *",
+            "password": "Mot de passe *",
+            "repPassword": "Répéter le mot de passe *"
+        }
     },
     "error": {
-        "data": "Champs contenant des erreurs :",
-        "name": "prénom",
-        "lastName": "nom de famille",
-        "phoneNumber": "Numéro de téléphone",
-        "country": "Indicatif téléphonique",
-        "password": "mot de passe",
-        "passwordLength": "Doit contenir au moins 6 caractères",
-        "passwordDigit": "Au moins un chiffre (1,2,3 etc.)",
-        "passwordCapitalLetter": "Une majuscule (A,B,C etc.)",
-        "passwordCapitalLetterSpecial": "Un caractère spécial (!,@#$ etc.)",
+        "name": "Veuillez entrer votre prénom",
+        "lastName": "Veuillez entrer votre nom de famille",
+        "phoneNumber": "Veuillez entrer votre numéro de téléphone",
+        "country": "Veuillez sélectionner un indicatif téléphonique valide",
+        "password": "Votre mot de passe ne répond pas aux exigences. Un mot de passe valide doit inclure :",
+        "passwordLength": "min. 6 caractères",
+        "passwordDigit": "au moins un chiffre",
+        "passwordCapitalLetter": "au moins une majuscule",
+        "passwordCapitalLetterSpecial": "au moins un caractère spécial",
         "reqPassword": "Les mots de passe ne correspondent pas",
-        "email": "Email",
-        "emailStatus": "est pris",
-        "success": "Compte a été créé"
+        "email": "Veuillez entrer une adresse email",
+        "emailStatus": "est déjà utilisé",
+        "success": "Le compte a été créé. Vérifiez votre boîte mail pour confirmer votre inscription.",
+        "checkbox": "Vous devez accepter les conditions d'utilisation et la politique de confidentialité"
     },
     "btn": "S'inscrire"
 }

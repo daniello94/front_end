@@ -47,3 +47,34 @@ export const logoutUser = async () => {
 export const refreshToken = async () => {
     return axios.get(`${API_URL}refresh-token`, { withCredentials: true });
 };
+
+export const updateUser = async (userId, updatedData) => {
+    return axios.put(`${API_URL}users/${userId}`, updatedData, {
+        withCredentials: true
+    })
+};
+
+export const newCompany = async (data) => {
+    return axios.post(
+        `${API_URL}company/newCompany`,
+        {
+            nameCompany: data.nameCompany,
+            country: data.country,
+            identificationNumber: data.identificationNumber,
+            address: {
+                city: data.city,
+                street: data.street,
+                number: data.number,
+                numberBox: data.numberBox,
+                zipCode: data.zipCode,
+            },
+            email: data.email,
+            bigBossEmail: data.bigBossEmail
+        },
+        { withCredentials: true }
+    );
+};
+
+export const removeFirstLogin = async (userId) => {
+    return axios.patch(`${API_URL}firstLoginRemove/${userId}`, { withCredentials: true })
+}

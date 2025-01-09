@@ -7,22 +7,35 @@
         "phoneNumber": "Podaj numer kontaktowy",
         "country": "Wybierz numer kierunkowy",
         "password": "Wpisz swoje hasło",
-        "reqPassword": "Powtórz podane hasło"
+        "reqPassword": "Powtórz podane hasło",
+        "accept": "* Akceptuję",
+        "rules": "regulamin serwisu",
+        "privateRules": "oraz politykę prywatności",
+        "label": {
+            "name": "Imię *",
+            "lastName": "Nazwisko *",
+            "email": "Email *",
+            "phoneNumber": "Numer Kontaktowy *",
+            "country": "Numer Kierunkowy *",
+            "password": "Hasło *",
+            "repPassword": "Powtórz Hasło *"
+        }
     },
     "error": {
         "name": "Proszę podaj swoje imię",
-        "lastName": "Proszę podaj swoje  nazwisko",
+        "lastName": "Proszę podaj swoje nazwisko",
         "phoneNumber": "Proszę podaj swój numer telefonu",
         "country": "Proszę wybrać poprawny numer kierunkowy",
-        "password": "Twoje podane hasło nie spełnia wymagań. Prawidłowe hasło musi zawierać :",
-        "passwordLength": " min 6 znaków",
-        "passwordDigit": "min jedną cyfre",
-        "passwordCapitalLetter": "min jedną dużą literę",
-        "passwordCapitalLetterSpecial": "min jeden znak specjalny",
-        "reqPassword":"Hasła się różnią",
-        "email": "Email",
+        "password": "Twoje podane hasło nie spełnia wymagań. Prawidłowe hasło musi zawierać:",
+        "passwordLength": "min. 6 znaków",
+        "passwordDigit": "min. jedną cyfrę",
+        "passwordCapitalLetter": "min. jedną dużą literę",
+        "passwordCapitalLetterSpecial": "min. jeden znak specjalny",
+        "reqPassword": "Hasła się różnią",
+        "email": "Proszę o wpisanie adresu email",
         "emailStatus": "jest zajęty",
-        "success": "Konto zostało stworzone"
+        "success": "Konto zostało stworzone. Przejdź do poczty, aby potwierdzić rejestrację.",
+        "checkbox": "Musisz zaakceptować regulamin oraz politykę prywatności"
     },
-    "btn":"Zarejestruj"
+    "btn": "Zarejestruj"
 }

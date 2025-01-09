@@ -3,27 +3,39 @@
     "form": {
         "name": "Introduceți prenumele",
         "lastName": "Introduceți numele de familie",
-        "email": "Introduceți emailul",
+        "email": "Introduceți adresa de email",
         "phoneNumber": "Furnizați un număr de contact",
         "country": "Alegeți un cod de țară",
         "password": "Introduceți parola",
-        "reqPassword": "Repetă parola"
+        "reqPassword": "Repetați parola introdusă",
+        "accept": "* Accept",
+        "rules": "termenii și condițiile",
+        "privateRules": "și politica de confidențialitate",
+        "label": {
+            "name": "Prenume *",
+            "lastName": "Nume de familie *",
+            "email": "Email *",
+            "phoneNumber": "Număr de contact *",
+            "country": "Cod de țară *",
+            "password": "Parolă *",
+            "repPassword": "Repetă parola *"
+        }
     },
     "error": {
-        "data": "Câmpuri care conțin erori:",
-        "name": "prenume",
-        "lastName": "nume de familie",
-        "phoneNumber": "număr de telefon",
-        "country": "cod de țară",
-        "password": "parola",
-        "passwordLength": "Trebuie să conțină cel puțin 6 caractere",
-        "passwordDigit": "Cel puțin un număr (1,2,3 etc.)",
-        "passwordCapitalLetter": "O literă mare (A,B,C etc.)",
-        "passwordCapitalLetterSpecial": "Un caracter special (!,@#$ etc.)",
-        "reqPassword": "Parolele nu corespund",
-        "email": "Email",
-        "emailStatus": "este ocupat",
-        "success": "Contul a fost creat"
+        "name": "Vă rugăm să introduceți prenumele",
+        "lastName": "Vă rugăm să introduceți numele de familie",
+        "phoneNumber": "Vă rugăm să introduceți numărul de telefon",
+        "country": "Vă rugăm să selectați un cod de țară valid",
+        "password": "Parola nu îndeplinește cerințele. O parolă validă trebuie să includă:",
+        "passwordLength": "min. 6 caractere",
+        "passwordDigit": "cel puțin o cifră",
+        "passwordCapitalLetter": "cel puțin o literă mare",
+        "passwordCapitalLetterSpecial": "cel puțin un caracter special",
+        "reqPassword": "Parolele nu se potrivesc",
+        "email": "Vă rugăm să introduceți o adresă de email",
+        "emailStatus": "este deja utilizat",
+        "success": "Contul a fost creat. Verificați emailul pentru a confirma înregistrarea.",
+        "checkbox": "Trebuie să acceptați termenii și condițiile și politica de confidențialitate"
     },
-    "btn": "Înregistrează-te"
+    "btn": "Înregistrare"
 }

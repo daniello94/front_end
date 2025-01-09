@@ -7,23 +7,35 @@
         "phoneNumber": "Provide a contact number",
         "country": "Choose a country code",
         "password": "Enter your password",
-        "reqPassword": "Repeat the password"
+        "reqPassword": "Repeat the given password",
+        "accept": "* I accept",
+        "rules": "the terms of service",
+        "privateRules": "and the privacy policy",
+        "label": {
+            "name": "First Name *",
+            "lastName": "Last Name *",
+            "email": "Email *",
+            "phoneNumber": "Contact Number *",
+            "country": "Country Code *",
+            "password": "Password *",
+            "repPassword": "Repeat Password *"
+        }
     },
     "error": {
-        "data": "Fields containing errors:",
-        "name": "first name",
-        "lastName": "last name",
-        "phoneNumber": "Phone number",
-        "country": "Country code",
-        "password": "password",
-        "passwordLength": "Must contain at least 6 characters",
-        "passwordDigit": "At least one digit (1,2,3 etc.)",
-        "passwordCapitalLetter": "An uppercase letter (A,B,C etc.)",
-        "passwordCapitalLetterSpecial": "A special character (!,@#$ etc.)",
+        "name": "Please provide your first name",
+        "lastName": "Please provide your last name",
+        "phoneNumber": "Please provide your phone number",
+        "country": "Please select a valid country code",
+        "password": "Your password does not meet the requirements. A valid password must include:",
+        "passwordLength": "min. 6 characters",
+        "passwordDigit": "at least one digit",
+        "passwordCapitalLetter": "at least one uppercase letter",
+        "passwordCapitalLetterSpecial": "at least one special character",
         "reqPassword": "Passwords do not match",
-        "email": "Email",
-        "emailStatus": "is taken",
-        "success": "Account has been created"
+        "email": "Please enter an email address",
+        "emailStatus": "is already taken",
+        "success": "The account has been created. Check your email to confirm registration.",
+        "checkbox": "You must accept the terms of service and privacy policy"
     },
     "btn": "Register"
 }

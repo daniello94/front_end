@@ -7,21 +7,35 @@
         "phoneNumber": "Geef een contactnummer op",
         "country": "Kies een landcode",
         "password": "Voer uw wachtwoord in",
-        "reqPassword": "Herhaal het wachtwoord"
+        "reqPassword": "Herhaal het ingevoerde wachtwoord",
+        "accept": "* Ik accepteer",
+        "rules": "de servicevoorwaarden",
+        "privateRules": "en het privacybeleid",
+        "label": {
+            "name": "Voornaam *",
+            "lastName": "Achternaam *",
+            "email": "E-mailadres *",
+            "phoneNumber": "Contactnummer *",
+            "country": "Landcode *",
+            "password": "Wachtwoord *",
+            "repPassword": "Herhaal wachtwoord *"
+        }
     },
     "error": {
-        "data": "Velden met fouten:",
-        "name": "voornaam",
-        "lastName": "achternaam",
-        "phoneNumber": "telefoonnummer",
-        "country": "landcode",
-        "password": "wachtwoord",
-        "passwordLength": "Moet minstens 6 tekens bevatten",
-        "passwordDigit": "Minstens één cijfer (1,2,3 enz.)",
-        "passwordCapitalLetter": "Een hoofdletter (A,B,C enz.)",
-        "passwordCapitalLetterSpecial": "Een speciaal teken (!,@#$ enz.)",
-        "email": "E-mail",
-        "emailStatus": "is bezet",
-        "success": "Account is aangemaakt"
-    }
+        "name": "Voer uw voornaam in",
+        "lastName": "Voer uw achternaam in",
+        "phoneNumber": "Voer uw telefoonnummer in",
+        "country": "Selecteer een geldige landcode",
+        "password": "Uw wachtwoord voldoet niet aan de vereisten. Een geldig wachtwoord moet bevatten:",
+        "passwordLength": "min. 6 tekens",
+        "passwordDigit": "minimaal één cijfer",
+        "passwordCapitalLetter": "minimaal één hoofdletter",
+        "passwordCapitalLetterSpecial": "minimaal één speciaal teken",
+        "reqPassword": "De wachtwoorden komen niet overeen",
+        "email": "Voer een e-mailadres in",
+        "emailStatus": "is al in gebruik",
+        "success": "Het account is aangemaakt. Controleer uw e-mail om de registratie te bevestigen.",
+        "checkbox": "U moet de servicevoorwaarden en het privacybeleid accepteren"
+    },
+    "btn": "Registreren"
 }

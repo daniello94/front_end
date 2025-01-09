@@ -1,13 +1,14 @@
 import React from "react";
 import Container from "../container/Container";
 import { useUser } from "../../contexts/UserContext";
+import BigBoss from "./BigBoss";
 
 const FirstLogin = () => {
     const { user } = useUser()
     return (
-        <Container containerLangue={true}>
+        <Container firstLogin={true}>
             {user && user.role === "BigBoss" && (
-                <p>Zalogowany Uzytkownik o roli BigBoss</p>
+                <BigBoss />
             )}
             {user && (user.role === "Employee" || user.role === "Boss" || user.role === "TeamManager") && (
                 <p>Zalogowany Uzytkowik normalny </p>

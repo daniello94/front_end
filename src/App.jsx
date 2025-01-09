@@ -14,12 +14,13 @@ import './i18n';
 import { useUser } from "../src/contexts/UserContext";
 import { checkSession } from '../api';
 import FirstLogin from './components/firstLogin/FirstLogin';
+import RulesService from './pages/rulesServis/RulesService';
 
 const App = () => {
   const { setUser, user } = useUser();
   const [isActiveSwitch, setActiveSwitch] = useState(false);
   const [activeLogin, setActiveLogin] = useState(false)
-console.log(user);
+  console.log(user);
 
   useEffect(() => {
     const initializeSession = async () => {
@@ -61,16 +62,17 @@ console.log(user);
         {activeLogin && (
           <Login setActiveLogin={setActiveLogin} />
         )}
-        {user && user?.firstLogin === true && (
+        {/* {user && user?.firstLogin === true && (
           <FirstLogin />
-        )}
-
+        )} */}
+        {user && user?.firstLogin && <FirstLogin />}
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/newAccount" element={<Account />} />
           <Route path="/verify" element={<EmailVerification />} />
+          <Route path='/rules' element={<RulesService />} />
         </Routes>
       </LanguageProvider>
     </Router>

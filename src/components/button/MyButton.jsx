@@ -3,7 +3,8 @@ import styles from "./MyButton.module.scss";
 const MyButton = (props) => {
     const baseClasses = [
         styles.button,
-        props.btnSubmit ? styles.submit : null
+        props.btnSubmit ? styles.submit : null,
+        props.btnForm ? styles.btnForm : null
     ]
     const classNames = baseClasses.filter(Boolean).join(' ');
     return (

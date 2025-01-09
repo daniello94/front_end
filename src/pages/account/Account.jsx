@@ -1,15 +1,18 @@
 import React, { useState } from "react";
-import Container from "../../components/container/Container";
-import MyInput from "../../components/input/MyInput";
-import { checkEmail, newAccount } from "../../../api";
 import CountrySelect from "../../components/CountrySelect/CountrySelect";
-import styles from "./Account.module.scss";
+import Container from "../../components/container/Container";
 import MyButton from "../../components/button/MyButton";
+import { checkEmail, newAccount } from "../../../api";
+import MyInput from "../../components/input/MyInput";
 import { useTranslation } from 'react-i18next';
+import styles from "./Account.module.scss";
+import { Link } from 'react-router-dom';
+
 const Account = () => {
     const { t } = useTranslation("account")
     const [statusRegistration, setStatusRegistration] = useState("");
     const [statusCheckEmail, setStatusCheckEmail] = useState("");
+    const [isCheckboxChecked, setIsCheckboxChecked] = useState(false);
     const [formData, setFormData] = useState({
         userName: '',
         userLastName: '',
@@ -29,6 +32,10 @@ const Account = () => {
         password: false,
         reqPassword: false
     });
+
+    const handleCheckboxChange = (e) => {
+        setIsCheckboxChecked(e.target.checked);
+    };
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -97,6 +104,12 @@ const Account = () => {
             return;
         }
 
+        if (!isCheckboxChecked) {
+            console.error('You must accept the terms and conditions.');
+            setStatusRegistration(<span className={styles.spanContentForm}>{t('error.checkbox')}</span>);
+            return;
+        }
+
         try {
             const response = await newAccount(
                 formData.userName,
@@ -123,7 +136,6 @@ const Account = () => {
                 password: false,
                 reqPassword: false,
             });
-            alert(t('error.success'))
             setStatusRegistration(t('error.success'));
             console.log('Account created successfully!', response);
         } catch (error) {
@@ -156,32 +168,32 @@ const Account = () => {
                 <h1>{t('h1')}</h1>
                 <span className={styles.createdAccount}>{statusRegistration}</span>
 
-                <label className={styles.labelForm}>Imię*</label>
+                <label className={styles.labelForm}>{t('form.label.name')}</label>
                 <MyInput name="userName" placeholder={t('form.name')} type="text" value={formData.userName} error={errors.userName} onChange={handleChange} />
                 {errors.userName && (
                     <span className={styles.spanContentForm}>{t("error.name")}</span>
                 )}
-                <label className={styles.labelForm}>Nazwisko*</label>
+                <label className={styles.labelForm}>{t('form.label.lastName')}</label>
                 <MyInput name="userLastName" placeholder={t('form.lastName')} type="text" value={formData.userLastName} error={errors.userLastName} onChange={handleChange} />
                 {errors.userLastName && (
                     <span className={styles.spanContentForm}>{t("error.lastName")} </span>
                 )}
-                <label className={styles.labelForm}>Email*</label>
+                <label className={styles.labelForm}>{t('form.label.email')}</label>
                 <MyInput name="email" placeholder={t('form.email')} type="email" value={formData.email} error={errors.email} onChange={handleChange} />
                 {errors.email && (
                     <span className={styles.spanContentForm}>{t("error.email")} {statusCheckEmail}</span>
                 )}
-                <label className={styles.labelForm}>Numer Kierunkowy*</label>
+                <label className={styles.labelForm}>{t('form.label.country')}</label>
                 <CountrySelect hasError={errors.country} onSelect={handleSelectDialCode} value={formData.country} />
                 {errors.country && (
                     <span className={styles.spanContentForm}> {t("error.country")}</span>
                 )}
-                <label className={styles.labelForm}>Numer Telefonu*</label>
+                <label className={styles.labelForm}>{t('form.label.phoneNumber')}</label>
                 <MyInput name="phoneNumber" placeholder={t('form.phoneNumber')} type="tel" value={formData.phoneNumber} error={errors.phoneNumber} onChange={handleChange} />
                 {errors.phoneNumber && (
                     <span className={styles.spanContentForm}> {t("error.phoneNumber")} </span>
                 )}
-                <label className={styles.labelForm}>Hasło*</label>
+                <label className={styles.labelForm}>{t('form.label.password')}</label>
                 <MyInput name="password" placeholder={t('form.password')} type="password" value={formData.password} error={errors.password} onChange={handleChange} />
                 {errors.password && (
                     <span className={styles.spanContentForm}>{t("error.password")}
@@ -191,12 +203,17 @@ const Account = () => {
                         {!/[@$!%*?&]/.test(formData.password) && <span className={styles.spanContentForm}> {t("error.passwordCapitalLetterSpecial")} </span>}
                     </span>
                 )}
-                <label className={styles.labelForm}>Powtórz Hasło *</label>
+                <label className={styles.labelForm}>{t('form.label.repPassword')}</label>
                 <MyInput name="reqPassword" placeholder={t('form.reqPassword')} type="password" value={formData.reqPassword} error={errors.reqPassword} onChange={handleChange} />
                 {errors.reqPassword && (
                     <span className={styles.spanContentForm}> {t('error.reqPassword')}</span>
                 )}
-          <input type="checkbox" placeholder="nxjsacndsjh"/>
+                <label className={styles.acceptRules}>
+                    <input type="checkbox" checked={isCheckboxChecked}
+                        onChange={handleCheckboxChange} />
+                    <span>{t('form.accept')} <Link to="/rules"> {t('form.rules')}</Link> {t('form.privateRules')}</span>
+                </label>
+
                 <MyButton btnSubmit={true} type="submit" onClick={handleSubmit}>{t('btn')}</MyButton>
             </form>
         </Container>

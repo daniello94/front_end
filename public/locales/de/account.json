@@ -3,27 +3,39 @@
     "form": {
         "name": "Geben Sie Ihren Vornamen ein",
         "lastName": "Geben Sie Ihren Nachnamen ein",
-        "email": "Geben Sie Ihre E-Mail ein",
-        "phoneNumber": "Geben Sie eine Kontaktnummer an",
-        "country": "Wählen Sie eine Ländervorwahl",
+        "email": "Geben Sie Ihre E-Mail-Adresse ein",
+        "phoneNumber": "Geben Sie eine Kontakttelefonnummer an",
+        "country": "Wählen Sie eine Landesvorwahl",
         "password": "Geben Sie Ihr Passwort ein",
-        "reqPassword": "Wiederholen Sie das Passwort"
+        "reqPassword": "Wiederholen Sie das eingegebene Passwort",
+        "accept": "* Ich akzeptiere",
+        "rules": "die Nutzungsbedingungen",
+        "privateRules": "und die Datenschutzbestimmungen",
+        "label": {
+            "name": "Vorname *",
+            "lastName": "Nachname *",
+            "email": "E-Mail *",
+            "phoneNumber": "Kontaktnummer *",
+            "country": "Landesvorwahl *",
+            "password": "Passwort *",
+            "repPassword": "Passwort wiederholen *"
+        }
     },
     "error": {
-        "data": "Felder mit Fehlern:",
-        "name": "Vorname",
-        "lastName": "Nachname",
-        "phoneNumber": "Telefonnummer",
-        "country": "Ländervorwahl",
-        "password": "Passwort",
-        "passwordLength": "Muss mindestens 6 Zeichen enthalten",
-        "passwordDigit": "Mindestens eine Zahl (1,2,3 usw.)",
-        "passwordCapitalLetter": "Ein Großbuchstabe (A,B,C usw.)",
-        "passwordCapitalLetterSpecial": "Ein Sonderzeichen (!,@#$ usw.)",
+        "name": "Bitte geben Sie Ihren Vornamen ein",
+        "lastName": "Bitte geben Sie Ihren Nachnamen ein",
+        "phoneNumber": "Bitte geben Sie Ihre Telefonnummer an",
+        "country": "Bitte wählen Sie eine gültige Landesvorwahl",
+        "password": "Ihr Passwort erfüllt nicht die Anforderungen. Ein gültiges Passwort muss enthalten:",
+        "passwordLength": "min. 6 Zeichen",
+        "passwordDigit": "mindestens eine Ziffer",
+        "passwordCapitalLetter": "mindestens einen Großbuchstaben",
+        "passwordCapitalLetterSpecial": "mindestens ein Sonderzeichen",
         "reqPassword": "Die Passwörter stimmen nicht überein",
-        "email": "E-Mail",
-        "emailStatus": "ist besetzt",
-        "success": "Konto wurde erstellt"
+        "email": "Bitte geben Sie eine E-Mail-Adresse ein",
+        "emailStatus": "ist bereits vergeben",
+        "success": "Das Konto wurde erstellt. Überprüfen Sie Ihre E-Mails, um die Registrierung zu bestätigen.",
+        "checkbox": "Sie müssen die Nutzungsbedingungen und die Datenschutzrichtlinien akzeptieren"
     },
     "btn": "Registrieren"
 }
