@@ -20,7 +20,7 @@ const App = () => {
   const { setUser, user } = useUser();
   const [isActiveSwitch, setActiveSwitch] = useState(false);
   const [activeLogin, setActiveLogin] = useState(false)
-  console.log(user);
+  const [selectedItem, setSelectedItem] = useState("none")
 
   useEffect(() => {
     const initializeSession = async () => {
@@ -55,7 +55,7 @@ const App = () => {
   return (
     <Router>
       <LanguageProvider>
-        <Menu active={setActiveSwitch} setActiveLogin={setActiveLogin} />
+        <Menu active={setActiveSwitch} setActiveLogin={setActiveLogin} setSelectedItem={setSelectedItem} />
         {isActiveSwitch && (
           <LanguageSwitcher active={setActiveSwitch} />
         )}
@@ -67,7 +67,7 @@ const App = () => {
         )} */}
         {user && user?.firstLogin && <FirstLogin />}
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<Home selectedItem={selectedItem} />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/newAccount" element={<Account />} />
