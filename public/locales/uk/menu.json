@@ -3,5 +3,21 @@
     "about": "Про нас",
     "account": "Реєстрація",
     "offer": "Пропозиція",
-    "login": "Увійти"
+    "login": "Увійти",
+    "menuLoginIn": {
+        "userProfile": "Мій Профіль",
+        "company": "Моя Компанія",
+        "project": "Мої Проекти",
+        "employs": "Працівники",
+        "message": "Повідомлення",
+        "shop": "Магазин",
+        "schedule": "Розклад",
+        "logOut": "Вийти"
+    },
+    "roleUser": {
+        "bigBoss": "Власник",
+        "boss": "Керівник",
+        "manager": "Менеджер",
+        "employee": "Працівник"
+    }
 }

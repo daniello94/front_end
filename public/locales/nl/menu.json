@@ -2,6 +2,22 @@
     "home": "Startpagina",
     "about": "Over ons",
     "account": "Registratie",
-    "offer": "Aanbod",
-    "login": "Inloggen"
+    "offer": "Aanbieding",
+    "login": "Inloggen",
+    "menuLoginIn": {
+        "userProfile": "Mijn Profiel",
+        "company": "Mijn Bedrijf",
+        "project": "Mijn Projecten",
+        "employs": "Werknemers",
+        "message": "Berichten",
+        "shop": "Winkel",
+        "schedule": "Schema",
+        "logOut": "Uitloggen"
+    },
+    "roleUser": {
+        "bigBoss": "Eigenaar",
+        "boss": "Beheerder",
+        "manager": "Manager",
+        "employee": "Werknemer"
+    }
 }

@@ -1,7 +1,23 @@
 {
     "home": "الصفحة الرئيسية",
     "about": "معلومات عنا",
-    "account": "التسجيل",
+    "account": "تسجيل",
     "offer": "عرض",
-    "login": "تسجيل الدخول"
+    "login": "تسجيل الدخول",
+    "menuLoginIn": {
+        "userProfile": "ملفي الشخصي",
+        "company": "شركتي",
+        "project": "مشاريعي",
+        "employs": "الموظفون",
+        "message": "الرسائل",
+        "shop": "المتجر",
+        "schedule": "الجدول الزمني",
+        "logOut": "تسجيل الخروج"
+    },
+    "roleUser": {
+        "bigBoss": "المالك",
+        "boss": "المدير",
+        "manager": "المشرف",
+        "employee": "الموظف"
+    }
 }

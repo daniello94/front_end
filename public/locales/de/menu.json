@@ -1,7 +1,23 @@
 {
-    "home": "Startpagina",
-    "about": "Over ons",
-    "account": "Registratie",
-    "offer": "Aanbod",
-    "login": "Inloggen"
+    "home": "Startseite",
+    "about": "Über uns",
+    "account": "Registrierung",
+    "offer": "Angebot",
+    "login": "Anmelden",
+    "menuLoginIn": {
+        "userProfile": "Mein Profil",
+        "company": "Mein Unternehmen",
+        "project": "Meine Projekte",
+        "employs": "Mitarbeiter",
+        "message": "Nachrichten",
+        "shop": "Shop",
+        "schedule": "Zeitplan",
+        "logOut": "Abmelden"
+    },
+    "roleUser": {
+        "bigBoss": "Eigentümer",
+        "boss": "Geschäftsführer",
+        "manager": "Leiter",
+        "employee": "Mitarbeiter"
+    }
 }

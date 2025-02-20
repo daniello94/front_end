@@ -1,7 +1,23 @@
 {
     "home": "Home",
-    "about": "About us",
+    "about": "About Us",
     "account": "Registration",
     "offer": "Offer",
-    "login": "Log in"
+    "login": "Log In",
+    "menuLoginIn": {
+        "userProfile": "My Profile",
+        "company": "My Company",
+        "project": "My Projects",
+        "employs": "Employees",
+        "message": "Messages",
+        "shop": "Shop",
+        "schedule": "Schedule",
+        "logOut": "Log Out"
+    },
+    "roleUser": {
+        "bigBoss": "Owner",
+        "boss": "Manager",
+        "manager": "Supervisor",
+        "employee": "Employee"
+    }
 }

@@ -3,5 +3,21 @@
     "about": "Despre noi",
     "account": "Înregistrare",
     "offer": "Ofertă",
-    "login": "Autentificare"
+    "login": "Autentificare",
+    "menuLoginIn": {
+        "userProfile": "Profilul Meu",
+        "company": "Compania Mea",
+        "project": "Proiectele Mele",
+        "employs": "Angajați",
+        "message": "Mesaje",
+        "shop": "Magazin",
+        "schedule": "Program",
+        "logOut": "Deconectare"
+    },
+    "roleUser": {
+        "bigBoss": "Proprietar",
+        "boss": "Administrator",
+        "manager": "Manager",
+        "employee": "Angajat"
+    }
 }

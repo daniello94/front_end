@@ -3,5 +3,21 @@
     "about": "O nas",
     "account": "Rejestracja",
     "offer": "Oferta",
-    "login": "Zaloguj"
+    "login": "Zaloguj",
+    "menuLoginIn": {
+        "userProfile": "Mój Profil",
+        "company": "Moja Firma",
+        "project": "Moje Projekty",
+        "employs": "Pracownicy",
+        "message": "Wiadomości",
+        "shop": "Sklep",
+        "schedule": "Harmonogram",
+        "logOut": "Wyloguj"
+    },
+    "roleUser": {
+        "bigBoss": "Właściciel",
+        "boss": "Zarządca",
+        "manager": "Kierownik",
+        "employee": "Pracownik"
+    }
 }

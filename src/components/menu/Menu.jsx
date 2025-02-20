@@ -1,22 +1,18 @@
 import React, { useState } from "react";
-import { RiCloseLargeLine } from "react-icons/ri";
 import { useLanguage } from '../langueSwitch/LanguageContext';
+import { BiPieChartAlt2, BiCalendarEvent, } from "react-icons/bi";
+import { LuSun, LuSquareUserRound, LuUsers } from "react-icons/lu";
+import { useUser } from "../../contexts/UserContext";
+import { MdOutlineHomeWork } from "react-icons/md";
+import { RiCloseLargeLine } from "react-icons/ri";
+import { RiLogoutBoxLine } from "react-icons/ri";
+import { useTranslation } from 'react-i18next';
 import { TiThMenu } from "react-icons/ti";
 import styles from "./menu.module.scss";
 import { Link } from 'react-router-dom';
-
-import { useTranslation } from 'react-i18next';
 import MyButton from "../button/MyButton";
-import { useUser } from "../../contexts/UserContext";
 import { logoutUser } from "../../../api";
-import { BiChevronUp, BiChevronDown, BiChevronRight, BiPieChartAlt2, BiCalendarEvent, } from "react-icons/bi";
-import { LuSun, LuSquareUserRound, LuUsers } from "react-icons/lu";
-import { IoSettingsOutline, IoMoonOutline } from "react-icons/io5";
-import { RiLogoutBoxLine } from "react-icons/ri";
-import { MdOutlineHomeWork } from "react-icons/md";
-import { IoIosSearch } from "react-icons/io";
 import { CiDatabase } from "react-icons/ci";
-import { AiOutlineQuestionCircle } from "react-icons/ai";
 import { FaRegUser } from "react-icons/fa";
 
 const Menu = (props) => {
@@ -65,13 +61,13 @@ const Menu = (props) => {
 
     const getRoleName = (role) => {
         const roleNames = {
-            BigBoss: "Właściciel",
-            Boss: "Zarządca",
-            TeamManager: "Menager",
-            Employee: "Pracownik"
+            BigBoss: t('roleUser.bigBoss'),
+            Boss: t('roleUser.boss'),
+            TeamManager: t('roleUser.manager'),
+            Employee: t('roleUser.employee')
         };
 
-        return roleNames[role] || "Nieznana rola"; // Domyślna wartość, jeśli rola nie pasuje
+        return roleNames[role] || "";
     };
     return (
         <>
@@ -117,14 +113,14 @@ const Menu = (props) => {
                     <nav className={styles.stylesMenuLogin}>
                         <ul>
                             {[
-                                { icon: <LuSquareUserRound className={styles.iconStylesUserLogin} />, text: "Mój Profil", action: () => props.setSelectedItem("profileUser") },
-                                { icon: <MdOutlineHomeWork className={styles.iconStylesUserLogin} />, text: "Moja Firma" ,action: () => props.setSelectedItem("company") },
-                                { icon: <BiPieChartAlt2 className={styles.iconStylesUserLogin} />, text: "Projekty",action: () => props.setSelectedItem("project") },
-                                { icon: <LuUsers className={styles.iconStylesUserLogin} />, text: "Pracownicy",action: () => props.setSelectedItem("employs") },
-                                { icon: <LuSun className={styles.iconStylesUserLogin} />, text: "Wiadomości",action: () => props.setSelectedItem("message") },
-                                { icon: <CiDatabase className={styles.iconStylesUserLogin} />, text: "Sklep",action: () => props.setSelectedItem("shop") },
-                                { icon: <BiCalendarEvent className={styles.iconStylesUserLogin} />, text: "Harmonogram",action: () => props.setSelectedItem("schedule") },
-                                { icon: <RiLogoutBoxLine className={styles.iconStylesUserLogin} />, text: "Wyloguj", action: () => { updateMenuState(); handleLogout(); props.setSelectedItem("none") } }
+                                { icon: <LuSquareUserRound className={styles.iconStylesUserLogin} />, text: t('menuLoginIn.userProfile'), action: () => props.setSelectedItem("profileUser") },
+                                { icon: <MdOutlineHomeWork className={styles.iconStylesUserLogin} />, text: t('menuLoginIn.company'), action: () => props.setSelectedItem("company") },
+                                { icon: <BiPieChartAlt2 className={styles.iconStylesUserLogin} />, text: t('menuLoginIn.project'), action: () => props.setSelectedItem("project") },
+                                { icon: <LuUsers className={styles.iconStylesUserLogin} />, text: t('menuLoginIn.employs'), action: () => props.setSelectedItem("employs") },
+                                { icon: <LuSun className={styles.iconStylesUserLogin} />, text: t('menuLoginIn.message'), action: () => props.setSelectedItem("message") },
+                                { icon: <CiDatabase className={styles.iconStylesUserLogin} />, text: t('menuLoginIn.shop'), action: () => props.setSelectedItem("shop") },
+                                { icon: <BiCalendarEvent className={styles.iconStylesUserLogin} />, text: t('menuLoginIn.schedule'), action: () => props.setSelectedItem("schedule") },
+                                { icon: <RiLogoutBoxLine className={styles.iconStylesUserLogin} />, text: t('menuLoginIn.logOut'), action: () => { updateMenuState(); handleLogout(); props.setSelectedItem("none") } }
                             ].map((item, index) => (
                                 <li
                                     key={index}

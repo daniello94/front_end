@@ -133,7 +133,7 @@
         transition: opacity 0.3s ease-in-out;
         transition-delay: 0.4s;
         white-space: nowrap;
-        visibility: hidden; 
+        visibility: hidden;
         p {
             margin: 0;
         }
@@ -234,9 +234,91 @@
                 .iconStylesUserLogin {
                     color: $text-color_white;
                 }
-                border-radius: 9px ;
-              
+                border-radius: 9px;
             }
+        }
+    }
+}
+@include responsive($breakpoint-desktop) {
+    .menuContentLogin {
+        width: 3%;
+        .UserConnect{
+            .iconStylesUserLogin{
+                margin: 2px;
+                font-size: 30px;
+            }
+            .textDataUser,
+            .textRoleUser {
+              margin-left: 10px;
+            }
+        }
+        .stylesMenuLogin {
+            margin-top: 10px;
+            ul {
+                li{
+                    .iconStylesUserLogin{
+                        margin: 0;
+                        font-size: 23px;
+                    }
+                }
+                .active {
+                    width: 90%;
+                   padding: 5px;
+                }
+            }
+        }
+    }
+}
+
+@include responsive($breakpoint-tablet){
+    .menuContentLogin {
+        width: 5%;
+        &:hover{
+            width: 25%;
+        }
+        .UserConnect{
+            .textDataUser,
+            .textRoleUser {
+              margin-left: 10px;
+            }
+        }
+        .stylesMenuLogin {
+            margin-top: 5px;
+            ul {
+                li{
+                    .iconStylesUserLogin{
+                        margin: 0;
+                        font-size: 23px;
+                    }
+                }
+                .active {
+                    width: 90%;
+                    height: 10px;
+                    margin-left: 2px;
+                   padding: 4px;
+                   .iconStylesUserLogin{
+                    margin: -1px;
+                   }
+                  
+                }
+            }
+        }
+    }
+}
+@include responsive($breakpoint-mobile){
+    .menuContentLogin{
+        width: 7%;
+        &:hover{
+            width: 45%;
+        }
+    }
+}
+
+@include responsive($breakpoint-small-mobile){
+    .menuContentLogin{
+        width: 10%;
+        &:hover{
+            width: 70%;
         }
     }
 }
