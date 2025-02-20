@@ -36,7 +36,7 @@
     background-color: $text-color;
     opacity: 0.9;
 }
-.contentPagesLogin{
+.contentPagesLogin {
     position: relative;
     width: 67%;
     height: 54.7%;
@@ -44,7 +44,7 @@
     padding: 30px;
 }
 
-.firstLoginConnect{
+.firstLoginConnect {
     z-index: 999999999999999999999999999999;
     position: fixed;
     top: 0;
@@ -58,6 +58,17 @@
     align-items: flex-start;
     align-items: flex-start;
     background-color: $background-color;
+}
+.pageStyles {
+    overflow-y: auto;
+    max-width: 97%;
+    margin-left: auto;
+    margin-right: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: nowrap;
 }
 
 @include responsive($breakpoint-tablet) {

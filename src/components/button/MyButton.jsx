@@ -4,7 +4,8 @@ const MyButton = (props) => {
     const baseClasses = [
         styles.button,
         props.btnSubmit ? styles.submit : null,
-        props.btnForm ? styles.btnForm : null
+        props.btnForm ? styles.btnForm : null,
+        props.btnTable ? styles.btnTable : null
     ]
     const classNames = baseClasses.filter(Boolean).join(' ');
     return (

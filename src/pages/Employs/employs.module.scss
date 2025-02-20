@@ -1,0 +1,65 @@
+@use "../../styles/utilities/variables" as *;
+@use "../../styles/utilities/mixins" as *;
+
+.contentHeader {
+    width: 90%;
+    height: 10vh;
+    background-color: $secondary-color_orange;
+    border: 2px solid black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 5px;
+    margin-top: 2%;
+    box-shadow: 0 2px 10px 6px $primary-color_silver;
+    h2 {
+        text-transform: uppercase;
+        letter-spacing: 2px;
+    }
+}
+.contentTable {
+    width: 90%;
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    font-size: clamp(12px, 1.5vw, 16px);
+    font-weight: 400;
+    .iconBtn {
+        font-size: 15px;
+        margin-right: 10px;
+    }
+    table {
+        width: 100%;
+        border-collapse: separate;
+        border-spacing: 0 10px;
+        text-transform: uppercase;
+        thead {
+            background-color: $secondary-color_orange;
+            box-shadow: 0 2px 10px 4px $text-color_white;
+            margin-bottom: 20px;
+            .headerTable {
+                border: 5px solid black;
+            }
+        }
+        tbody {
+            margin-top: 30px;
+            .row {
+                margin-top: 10px;
+                height: 10vh;
+                background-color: $text-color_white;
+                box-shadow: 1px 2px 11px 2px $primary-color_silver;
+                .actionTd{
+                    display: flex;
+                    flex-direction: row;
+                    flex-wrap: wrap;
+                    justify-content: center;
+                    align-items: center;
+                    height: 10vh;
+                }
+            }
+        }
+    }
+}
