@@ -78,3 +78,18 @@ export const newCompany = async (data) => {
 export const removeFirstLogin = async (userId) => {
     return axios.patch(`${API_URL}firstLoginRemove/${userId}`, { withCredentials: true })
 }
+
+export const addEmployee = async (data) => {
+    return axios.post(`${API_URL}users`, {
+        userName: data.userName,
+        userLastName: data.userLastName,
+        email: data.email,
+        price: data.price,
+        role: data.role,
+        bigBossEmail: data.bigBossEmail
+    }, { withCredentials: true })
+};
+
+export const listEmployeeCompany = async (companyId) => {
+    return axios.get(`${API_URL}company/employeeList/${companyId}`, { withCredentials: true })
+}

@@ -8,7 +8,8 @@ const Container = (props) => {
         props.login ? styles.containerLogin : null,
         props.contentPages ? styles.contentPagesLogin : null,
         props.firstLogin ? styles.firstLoginConnect : null,
-        props.containerPage ? styles.pageStyles : null
+        props.containerPage ? styles.pageStyles : null,
+        props.viewsWindows ? styles.windows : null
     ]
     const classNames = baseClasses.filter(Boolean).join(' ');
     return (

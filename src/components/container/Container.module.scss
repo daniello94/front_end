@@ -70,6 +70,15 @@
     align-items: center;
     flex-wrap: nowrap;
 }
+.windows{
+    position: absolute;
+    top: 10%;
+    width: 50%;
+    height: 50%;
+    background-color:$text-color_white;
+    border-radius: 10px;
+    box-shadow: 2px 2px 12px 2px $primary-color_silver;
+}
 
 @include responsive($breakpoint-tablet) {
     .containerLangue {
