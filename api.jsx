@@ -92,4 +92,22 @@ export const addEmployee = async (data) => {
 
 export const listEmployeeCompany = async (companyId) => {
     return axios.get(`${API_URL}company/employeeList/${companyId}`, { withCredentials: true })
-}
+};
+
+export const userToggleStatus = async (userId) => {
+    return axios.patch(`${API_URL}user-toggle-status/${userId}`, {}, {
+        withCredentials: true,
+        headers: {
+            "Content-Type": "application/json"
+        }
+    });
+};
+
+export const deleteUsers = async (userId) => {
+    return axios.delete(`${API_URL}users/${userId}`, {
+        withCredentials: true,
+        headers: {
+            "Content-Type": "application/json"
+        }
+    });
+};

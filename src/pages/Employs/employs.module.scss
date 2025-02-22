@@ -58,6 +58,14 @@
                     justify-content: center;
                     align-items: center;
                     height: 15vh;
+                    .questionDelete{
+                        .buttonStylesQuestionDelete{
+                            display: flex;
+                            flex-direction: row;
+                            flex-wrap: wrap;
+                            justify-content: center;
+                        }
+                    }
 
                 }
             }

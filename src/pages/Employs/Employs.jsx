@@ -2,20 +2,21 @@ import React, { useState, useEffect } from "react";
 import Container from "../../components/container/Container";
 import styles from "./employs.module.scss";
 import MyButton from "../../components/button/MyButton";
-import { CiEdit } from "react-icons/ci";
 import { RiDeleteBin6Line } from "react-icons/ri";
 import { MdBlock } from "react-icons/md";
 import { GrUnlock } from "react-icons/gr";
 import { LuSquareUserRound } from "react-icons/lu";
 import AddEmployee from "./AddEmployee";
-import { listEmployeeCompany } from "../../../api";
+import { listEmployeeCompany, userToggleStatus, deleteUsers } from "../../../api";
 import { useUser } from "../../contexts/UserContext";
 
 const Employs = () => {
-    const [isBlocked, setIsBlocked] = useState(false)
+    const [statusDelete, setStatusDelete] = useState("")
     const [addEmployee, setAddEmployee] = useState(false);
     const [listEmployee, setListEmployee] = useState([])
     const { user } = useUser();
+    console.log(listEmployee);
+
 
     const fetchEmployees = async () => {
         try {
@@ -31,6 +32,24 @@ const Employs = () => {
             console.error("Błąd pobierania listy pracowników:", error);
         }
     }
+    const toggleUserStatus = async (userId) => {
+        try {
+            await userToggleStatus(userId);
+            await fetchEmployees();
+        } catch (error) {
+            console.error("Błąd podczas zmiany statusu użytkownika", error);
+        }
+    };
+
+    const userDelete = async (userId) => {
+        try {
+            await deleteUsers(userId);
+            await fetchEmployees();
+        } catch (error) {
+            console.error("Błąd podczas usuwania użytowniak", error);
+        }
+    };
+
     useEffect(() => {
         fetchEmployees();
     }, [user?.idCompany]);
@@ -58,25 +77,53 @@ const Employs = () => {
                             listEmployee.map((employee) => (
                                 <tr key={employee._id} className={styles.row}>
                                     <td>{employee.userName} {employee.userLastName}</td>
-                                    <td>Pracownik</td>
-                                    <td>Aktywny</td>
+                                    <td>
+                                        <p>
+                                            {employee.__t === "Employee" ? "Pracownik" :
+                                                employee.__t === "Boss" ? "Zarządca" :
+                                                    employee.__t === "TeamManager" ? "Manager" :
+                                                        "Nieznana rola"}
+                                        </p>
+
+                                    </td>
+                                    <td>{!employee.statusUser ? (
+                                        <>
+                                            Aktywny
+                                        </>
+                                    ) : (
+                                        <>
+                                            Zablokowany</>
+                                    )}</td>
                                     <td>jskssjbdh asbhabda</td>
                                     <td>{employee.email}</td>
                                     <td>{employee.phone || "Brak numeru"}</td>
                                     <td className={styles.actionTd}>
-                                        <MyButton btnTable={true}> <CiEdit className={styles.iconBtn} /> Edytuj</MyButton>
-                                        <MyButton btnTable={true}><RiDeleteBin6Line className={styles.iconBtn} /> Usuń</MyButton>
-                                        <MyButton btnTable={true} onClick={() => setIsBlocked(!isBlocked)}>
-                                            {isBlocked ? (
-                                                <>
-                                                    <GrUnlock className={styles.iconBtn} />  Odblokuj
-                                                </>
-                                            ) : (
-                                                <>
-                                                    <MdBlock className={styles.iconBtn} /> Zablokuj
-                                                </>
-                                            )}
-                                        </MyButton>
+                                        {statusDelete !== employee._id ? (
+                                            <>
+                                                <MyButton btnTable={true} onClick={() => setStatusDelete(employee._id)}><RiDeleteBin6Line className={styles.iconBtn} /> Usuń</MyButton>
+                                                <MyButton btnTable={true} onClick={() => toggleUserStatus(employee._id)}>
+                                                    {employee.statusUser ? (
+                                                        <>
+                                                            <GrUnlock className={styles.iconBtn} />  Odblokuj
+                                                        </>
+                                                    ) : (
+                                                        <>
+                                                            <MdBlock className={styles.iconBtn} /> Zablokuj
+                                                        </>
+                                                    )}
+                                                </MyButton></>
+
+                                        ) : (
+                                            <div className={styles.questionDelete}>
+                                                <span> Jesteś pewien że chcesz usunąć tego użytkownika </span>
+                                                <div className={styles.buttonStylesQuestionDelete}>
+                                                    <MyButton btnTable={true} onClick={() => userDelete(employee._id)}>Tak</MyButton>
+                                                    <MyButton btnTable={true} onClick={() => setStatusDelete(true)}>Nie</MyButton>
+                                                </div>
+
+                                            </div>
+                                        )}
+
                                     </td>
                                 </tr>
                             ))
@@ -91,7 +138,7 @@ const Employs = () => {
                 <MyButton btnTable={true} onClick={() => setAddEmployee(true)}><LuSquareUserRound className={styles.iconBtn} /> Dodaj</MyButton>
             </div>
             {addEmployee && (
-                <AddEmployee setAddEmployee={setAddEmployee} refreshEmployees={fetchEmployees}/>
+                <AddEmployee setAddEmployee={setAddEmployee} refreshEmployees={fetchEmployees} />
             )}
         </Container>
     )

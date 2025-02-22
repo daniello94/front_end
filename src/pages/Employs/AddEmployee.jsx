@@ -5,7 +5,7 @@ import { IoMdCloseCircleOutline } from "react-icons/io";
 import { FiSave } from "react-icons/fi";
 import MyButton from "../../components/button/MyButton";
 import MyInput from "../../components/input/MyInput";
-import { addEmployee } from "../../../api";
+import { addEmployee, checkEmail } from "../../../api";
 import { useUser } from "../../contexts/UserContext";
 
 const AddEmployee = ({ setAddEmployee, refreshEmployees }) => {
@@ -18,6 +18,7 @@ const AddEmployee = ({ setAddEmployee, refreshEmployees }) => {
         role: '',
         bigBossEmail: user.email
     });
+    const [placeholderEmail, setPlaceholderEmail] = useState("")
 
     const [errors, setErrors] = useState({
         userName: false,
@@ -50,7 +51,15 @@ const AddEmployee = ({ setAddEmployee, refreshEmployees }) => {
         }
         setErrors(newErrors);
     };
-
+    const checkEmailAvailability = async (email) => {
+        try {
+            const response = await checkEmail(email);
+            return response.data.exists;
+        } catch (error) {
+            console.error('Error checking email:', error);
+            return false;
+        }
+    };
     const handleSubmit = async (e) => {
         e.preventDefault();
 
@@ -63,6 +72,13 @@ const AddEmployee = ({ setAddEmployee, refreshEmployees }) => {
         };
 
         setErrors(newErrors);
+        const emailIsValid = await checkEmailAvailability(formData.email);
+        if (emailIsValid) {
+            setErrors(prevErrors => ({ ...prevErrors, email: true }));
+            setPlaceholderEmail("email jest zajety");
+            console.error('Email is already in use');
+            return;
+        }
 
         if (Object.values(newErrors).some(error => error)) {
             return;
@@ -131,6 +147,7 @@ const AddEmployee = ({ setAddEmployee, refreshEmployees }) => {
                             onChange={handleChange}
                             type="email"
                         />
+                        <span className={styles.emailCheck}>{placeholderEmail}</span>
                     </label>
                     <label> Stawka
                         <MyInput
