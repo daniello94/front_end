@@ -42,6 +42,42 @@
             margin-bottom: 20px;
             .headerTable {
                 border: 5px solid black;
+                .thRole {
+                    position: relative;
+                    cursor: pointer;
+                    .iconDown {
+                        position: absolute;
+                        bottom: 16%;
+                    }
+                    .roleDropdown {
+                        position: absolute;
+                        background: white;
+                        border: 1px solid #ddd;
+                        list-style: none;
+                        padding: 5px 0;
+                        font-size: clamp(9px, 1.5vw, 13px);
+                        margin: 0;
+                        width: 150px;
+                        box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+                        z-index: 9999999 !important;
+                        overflow: visible; 
+                        max-height: none;  
+                        display: block;  
+                        overflow-y: auto;
+                    }
+                    
+                    .roleDropdown li {
+                        padding: 8px 12px;
+                        cursor: pointer;
+                        transition: background 0.2s ease-in-out;
+                        white-space: nowrap; 
+                    }
+                    
+                    .roleDropdown li:hover {
+                        background: #f0f0f0;
+                    }
+                    
+                }
             }
         }
         tbody {
@@ -51,22 +87,30 @@
                 height: 15vh;
                 background-color: $text-color_white;
                 box-shadow: 1px 2px 11px 2px $primary-color_silver;
-                .actionTd{
+                .editRole {
+                    cursor: pointer;
+                }
+                .selectNewRole {
+                    padding: 5px;
+                    border-radius: 5px;
+                    border: 1px solid $primary-color_silver;
+                    box-shadow: 1px 1px 2px 1px $primary-color_silver;
+                }
+                .actionTd {
                     display: flex;
                     flex-direction: row;
                     flex-wrap: nowrap;
                     justify-content: center;
                     align-items: center;
                     height: 15vh;
-                    .questionDelete{
-                        .buttonStylesQuestionDelete{
+                    .questionDelete {
+                        .buttonStylesQuestionDelete {
                             display: flex;
                             flex-direction: row;
                             flex-wrap: wrap;
                             justify-content: center;
                         }
                     }
-
                 }
             }
         }

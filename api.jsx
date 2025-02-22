@@ -111,3 +111,16 @@ export const deleteUsers = async (userId) => {
         }
     });
 };
+
+export const changeRole = async (newRole, userId) => {
+    return axios.post(`${API_URL}change-role/${userId}`, { newRole }, {
+        withCredentials: true,
+        headers: {
+            "Content-Type": "application/json"
+        }
+    });
+};
+
+export const viewsUsersSort = async (role) => {
+    return axios.get(`${API_URL}users-role?role=${role}`, { withCredentials: true });
+};
