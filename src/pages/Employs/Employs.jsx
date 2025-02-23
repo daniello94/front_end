@@ -20,7 +20,6 @@ const Employs = () => {
     const [statusDelete, setStatusDelete] = useState(null);
     const [addEmployee, setAddEmployee] = useState(false);
 
-    // Pobranie listy pracowników
     const fetchEmployees = async () => {
         try {
             const res = await listEmployeeCompany(user.idCompany);
@@ -37,21 +36,16 @@ const Employs = () => {
         }
     };
 
-    // Pobranie użytkowników po roli
     const fetchUsersByRole = async (role) => {
         if (role === "all") {
             setFilteredEmployees(listEmployee);
             return;
         }
-
+    
         try {
-            const res = await viewsUsersSort(role);
+            const res = await viewsUsersSort(role, user.idCompany);
             if (res.data && Array.isArray(res.data.users)) {
-                if (res.data.users.length === 0) {
-                    setFilteredEmployees([]);
-                } else {
-                    setFilteredEmployees(res.data.users);
-                }
+                setFilteredEmployees(res.data.users);
             } else {
                 console.error("Niepoprawny format danych:", res.data);
                 setFilteredEmployees([]);
@@ -61,20 +55,26 @@ const Employs = () => {
             setFilteredEmployees([]);
         }
     };
-
-    // Obsługa zmiany roli użytkownika
-    const handleRoleChange = async (e, userId) => {
+    const handleRoleChange = async (e, userId, currentRole) => {
         const newRole = e.target.value;
+
+        if (newRole === currentRole.toLowerCase()) {
+            console.warn("Nowa rola jest taka sama jak obecna. Zmiana nie jest potrzebna.");
+            return;
+        }
+
         try {
+            setStatusRole(userId);
+
             await changeRole(newRole, userId);
             await fetchEmployees();
+
             setStatusRole(null);
         } catch (error) {
-            console.error("Błąd podczas zmiany roli użytkownika", error);
+            console.error("Błąd podczas zmiany roli użytkownika:", error);
+            alert("Nie udało się zmienić roli. Spróbuj ponownie.");
         }
     };
-
-    // Blokowanie/Odblokowanie użytkownika
     const toggleUserStatus = async (userId) => {
         try {
             await userToggleStatus(userId);
@@ -84,7 +84,6 @@ const Employs = () => {
         }
     };
 
-    // Usuwanie użytkownika
     const userDelete = async (userId) => {
         try {
             await deleteUsers(userId);
@@ -147,7 +146,7 @@ const Employs = () => {
                                             <select
                                                 className={styles.selectNewRole}
                                                 value={employee.__t.toLowerCase()}
-                                                onChange={(e) => handleRoleChange(e, employee._id)}
+                                                onChange={(e) => handleRoleChange(e, employee._id, employee.__t)}
                                             >
                                                 <option value="employee">Pracownik</option>
                                                 <option value="boss">Zarządca</option>
@@ -190,7 +189,7 @@ const Employs = () => {
                             ))
                         ) : (
                             <tr>
-                                <td colSpan="7" className={styles.noData}>Brak danych do wyświetlenia.</td>
+                                <td colSpan="7" className={styles.row}>Brak danych do wyświetlenia.</td>
                             </tr>
                         )}
                     </tbody>

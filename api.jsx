@@ -121,6 +121,9 @@ export const changeRole = async (newRole, userId) => {
     });
 };
 
-export const viewsUsersSort = async (role) => {
-    return axios.get(`${API_URL}users-role?role=${role}`, { withCredentials: true });
+export const viewsUsersSort = async (role, companyId) => {
+    return axios.get(`${API_URL}users-role`, {
+        params: { role, companyId },
+        withCredentials: true,
+    });
 };
