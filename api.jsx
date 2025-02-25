@@ -48,10 +48,26 @@ export const refreshToken = async () => {
     return axios.get(`${API_URL}refresh-token`, { withCredentials: true });
 };
 
+export const userInfo = async (userId) => {
+    return axios.get(`${API_URL}user-info/${userId}`, { withCredentials: true })
+}
+
 export const updateUser = async (userId, updatedData) => {
     return axios.put(`${API_URL}users/${userId}`, updatedData, {
         withCredentials: true
     })
+};
+
+export const updatePhoneNumber = (userId, country, phoneNumber) => {
+    return axios.patch(`${API_URL}update-phone/${userId}`,
+        {
+            phoneNumber: {
+                country: country,
+                number: phoneNumber
+            }
+        },
+        { withCredentials: true }
+    );
 };
 
 export const newCompany = async (data) => {

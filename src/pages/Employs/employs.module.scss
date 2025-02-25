@@ -21,11 +21,13 @@
 .contentTable {
     width: 90%;
     margin-top: 10px;
+    height: 100vh;
+    font-family: $font-family;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: flex-start;
-    font-size: clamp(12px, 1.5vw, 16px);
+    font-size: clamp(10px, 1.5vw, 16px);
     font-weight: 400;
     .iconBtn {
         font-size: 15px;
@@ -54,29 +56,29 @@
                         background: white;
                         border: 1px solid #ddd;
                         list-style: none;
+                        font-family: $font-family;
                         padding: 5px 0;
                         font-size: clamp(9px, 1.5vw, 13px);
                         margin: 0;
                         width: 150px;
                         box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
                         z-index: 9999999 !important;
-                        overflow: visible; 
-                        max-height: none;  
-                        display: block;  
+                        overflow: visible;
+                        max-height: none;
+                        display: block;
                         overflow-y: auto;
                     }
-                    
+
                     .roleDropdown li {
                         padding: 8px 12px;
                         cursor: pointer;
                         transition: background 0.2s ease-in-out;
-                        white-space: nowrap; 
+                        white-space: nowrap;
                     }
-                    
+
                     .roleDropdown li:hover {
                         background: #f0f0f0;
                     }
-                    
                 }
             }
         }
@@ -89,12 +91,15 @@
                 box-shadow: 1px 2px 11px 2px $primary-color_silver;
                 .editRole {
                     cursor: pointer;
+                    font-family: $font-family;
+                    padding: 5px;
                 }
                 .selectNewRole {
                     padding: 5px;
                     border-radius: 5px;
                     border: 1px solid $primary-color_silver;
                     box-shadow: 1px 1px 2px 1px $primary-color_silver;
+                    font-family: $font-family;
                 }
                 .actionTd {
                     display: flex;
@@ -114,5 +119,114 @@
                 }
             }
         }
+    }
+}
+@include responsive($breakpoint-desktop) {
+    .contentTable {
+        font-size: clamp(10px, 1.2vw, 13px);
+        .iconBtn {
+            margin-right: 5px;
+        }
+        table {
+            thead {
+                .headerTable {
+                    .thRole {
+                        .iconDown {
+                            bottom: 27%;
+                            margin-left: 1px;
+                        }
+                        .roleDropdown {
+                            font-size: clamp(9px, 1.3vw, 12px);
+                        }
+                    }
+                }
+            }
+            tbody {
+                font-size: clamp(10px, 1.2vw, 12px);
+            }
+        }
+    }
+}
+@include responsive($breakpoint-tablet) {
+    .contentTable {
+        width: 60%;
+        height: 100%;
+
+        table {
+            display: block;
+            width: 100%;
+
+            thead {
+                display: none;
+            }
+
+            tbody {
+                display: block;
+                width: 100%;
+                .row {
+                    display: flex;
+                    height: 47vh;
+                    width: 100%;
+                    flex-direction: column;
+                    background: white;
+                    border: 1px solid #ddd;
+                    margin-bottom: 10px;
+                    padding: 10px;
+                    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+
+                    td {
+                        display: flex;
+                        justify-content: flex-start;
+                        width: 100%;
+                        padding: 10px;
+                        border-bottom: 1px solid #eee;
+                        max-height: 20px;
+                        height: auto; 
+                        align-items: center; 
+                    }
+
+                    td::before {
+                        content: attr(data-label);
+                        font-weight: bold;
+                        text-transform: uppercase;
+                        flex-basis: 40%;
+                    }
+
+                    .actionTd {
+                        flex-direction: row;
+                        justify-content: space-around;
+                        text-align: center;
+                        button {
+                            margin: 5px 0;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@include responsive($breakpoint-mobile) {
+    .contentHeader{
+        width: 85%;
+        height: 8vh;
+        margin-left: 5%;
+        h2{
+            font-size: 23px !important;
+        }
+    }
+    .contentTable {
+        width: 80%;
+table{
+    tbody{
+        .row{
+            height: 57vh;
+            td{
+                max-height: 90px;
+                height: auto; 
+            }
+        }
+    }
+}
     }
 }

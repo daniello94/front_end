@@ -149,10 +149,10 @@ const AddEmployee = ({ setAddEmployee, refreshEmployees }) => {
                         />
                         <span className={styles.emailCheck}>{placeholderEmail}</span>
                     </label>
-                    <label> Stawka
+                    <label> Stawka/h
                         <MyInput
                             optionTwo={true}
-                            placeholder="100/H"
+                            placeholder="100"
                             name="price"
                             value={formData.price}
                             onChange={handleChange}

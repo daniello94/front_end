@@ -1,20 +1,13 @@
 @use "../../styles/utilities/variables" as *;
 @use "../../styles/utilities/mixins" as *;
-.iconClose {
-    font-size: 30px;
-    position: absolute;
-    right: 0;
-    padding: 10px;
-    cursor: pointer;
-    transition: 1s;
-    &:hover {
-        color: red;
-        transform: scale(1.1);
-    }
+
+.iconForm {
+    font-size: clamp(17px, 1.5vw, 20px);
+    margin-right: 5px;
 }
 .formAddEmployee {
-    width: 80%;
-    height: 80%;
+    width: 90%;
+    height: 90%;
     margin-top: 20px;
     padding: 10px;
     display: flex;
@@ -33,24 +26,33 @@
             align-items: flex-start;
             width: 100%;
             select {
-                width: 87%;
+                width: 84%;
                 padding: 10px;
+                font-size: clamp(14px, 1.5vw, 18px);
                 border-radius: 10px;
                 border: 2px solid rgb(169, 172, 176);
-                font-size: clamp(14px, 1.5vw, 18px);
             }
-            .error{
+            .error {
                 border-color: red;
                 box-shadow: 2px 2px 2px 1px rgba(219, 28, 21, 0.665);
                 color: red;
             }
-            .emailCheck{
+            .emailCheck {
                 color: red;
                 margin: 0;
             }
         }
     }
-    .buttonStylesForm{
+    .addressContent {
+        .dataAddressContent,
+        .dataZipCodeContent {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            width: 100%;
+        }
+    }
+    .buttonStylesForm {
         position: absolute;
         bottom: 0;
         right: 0;
@@ -63,5 +65,4 @@
         margin-right: 20px;
     }
 }
-
 

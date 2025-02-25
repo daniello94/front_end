@@ -10,6 +10,7 @@ import { FaChevronDown } from "react-icons/fa";
 import AddEmployee from "./AddEmployee";
 import { listEmployeeCompany, userToggleStatus, deleteUsers, changeRole, viewsUsersSort } from "../../../api";
 import { useUser } from "../../contexts/UserContext";
+import EditUser from "../EditUser/EditUser";
 
 const Employs = () => {
     const { user } = useUser();
@@ -19,6 +20,9 @@ const Employs = () => {
     const [viewsSelectRole, setViewsSelectRole] = useState(false);
     const [statusDelete, setStatusDelete] = useState(null);
     const [addEmployee, setAddEmployee] = useState(false);
+    const [viewsEditUser, setViewsEditUser] = useState(false);
+    const [idEditUser, setIdEdit] = useState("")
+
 
     const fetchEmployees = async () => {
         try {
@@ -41,7 +45,7 @@ const Employs = () => {
             setFilteredEmployees(listEmployee);
             return;
         }
-    
+
         try {
             const res = await viewsUsersSort(role, user.idCompany);
             if (res.data && Array.isArray(res.data.users)) {
@@ -133,8 +137,8 @@ const Employs = () => {
                         {filteredEmployees.length > 0 ? (
                             filteredEmployees.map((employee) => (
                                 <tr key={employee._id} className={styles.row}>
-                                    <td>{employee.userName} {employee.userLastName}</td>
-                                    <td>
+                                    <td data-label="Imię i Nazwisko">{employee.userName} {employee.userLastName}</td>
+                                    <td data-label="Rola">
                                         {statusRole !== employee._id ? (
                                             <p onClick={() => setStatusRole(employee._id)} className={styles.editRole}>
                                                 {employee.__t === "Employee" ? "Pracownik" :
@@ -148,20 +152,31 @@ const Employs = () => {
                                                 value={employee.__t.toLowerCase()}
                                                 onChange={(e) => handleRoleChange(e, employee._id, employee.__t)}
                                             >
-                                                <option value="employee">Pracownik</option>
-                                                <option value="boss">Zarządca</option>
+                                                <option value="">Wybierz</option>
+                                                <option value="Employee">Pracownik</option>
+                                                <option value="Boss">Zarządca</option>
                                                 <option value="team_manager">Manager</option>
                                             </select>
                                         )}
                                     </td>
-                                    <td>{employee.statusUser ? "Zablokowany" : "Aktywny"}</td>
-                                    <td>Adres pracownika</td>
-                                    <td>{employee.email}</td>
-                                    <td>{employee.phone || "Brak numeru"}</td>
-                                    <td className={styles.actionTd}>
+                                    <td data-label="Status">{employee.statusUser ? "Zablokowany" : "Aktywny"}</td>
+                                    <td data-label="Adres" style={{ whiteSpace: "pre-line" }}>
+                                        {employee.address ? (
+                                            `${employee.address.city}, ${employee.address.street} ${employee.address.number} ${employee.address.numberBox}
+                         ${employee.address.zipCode}, ${employee.address.placePost}`
+                                        ) : "Brak adresu"}
+                                    </td>
+                                    <td data-label="Email">{employee.email}</td>
+                                    <td data-label="Numer Kontaktowy">
+                                        {employee.phoneNumber ? `${employee.phoneNumber.code} ${employee.phoneNumber.number}` : "Brak numeru"}
+                                    </td>
+                                    <td data-label="Akcja" className={styles.actionTd}>
                                         {statusDelete !== employee._id ? (
                                             <>
-                                                <MyButton btnTable={true} onClick={() => setStatusRole(employee._id)} >
+                                                <MyButton btnTable={true} onClick={() => {
+                                                    setViewsEditUser(true);
+                                                    setIdEdit(employee._id);
+                                                }}>
                                                     <RiEditLine className={styles.iconBtn} /> Edytuj
                                                 </MyButton>
                                                 <MyButton btnTable={true} onClick={() => setStatusDelete(employee._id)}>
@@ -193,12 +208,14 @@ const Employs = () => {
                             </tr>
                         )}
                     </tbody>
+
                 </table>
                 <MyButton btnTable={true} onClick={() => setAddEmployee(true)}>
                     <LuSquareUserRound className={styles.iconBtn} /> Dodaj
                 </MyButton>
             </div>
             {addEmployee && <AddEmployee setAddEmployee={setAddEmployee} refreshEmployees={fetchEmployees} />}
+            {viewsEditUser && <EditUser setViewsEditUser={setViewsEditUser} idEditUser={idEditUser} refreshEmployees={fetchEmployees} />}
         </Container>
     );
 };
